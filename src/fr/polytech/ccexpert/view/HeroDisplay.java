@@ -9,20 +9,20 @@ import fr.polytech.ccexpert.model.Hero;
 
 class HeroDisplay extends Form {
     HeroDisplay(CCExpert main, Hero hero) {
-        Form heroDisplay = new Form(hero.getName());
-        heroDisplay.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
+        setTitle(hero.getName());
+        setLayout(new BoxLayout(BoxLayout.Y_AXIS));
 
         Label nameLabel = new Label("Nom : " + hero.getName());
         Label data1 = new Label("Data");
         Label data2 = new Label("Data again");
-        heroDisplay.addComponent(nameLabel);
-        heroDisplay.addComponent(data1);
-        heroDisplay.addComponent(data2);
+        addComponent(nameLabel);
+        addComponent(data1);
+        addComponent(data2);
 
         Button back = new Button("Retour");
         back.addActionListener(evt -> main.loadHeroes());
-        heroDisplay.addComponent(back);
+        addComponent(back);
 
-        heroDisplay.show();
+        show();
     }
 }

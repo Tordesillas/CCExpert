@@ -48,7 +48,7 @@ public class Home extends Form implements ActionListener {
         if (obj == b1) {
             main.loadHeroes();
         } else if (obj == b2) {
-            main.loadGdG();
+            main.loadGuildWar();
         } else if (obj == b3) {
             main.loadDonjons();
         }

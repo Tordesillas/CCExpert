@@ -66,7 +66,11 @@ public class HeroesSearch extends Form implements ActionListener {
             containerSearch.removeAll();
         }
 
-        Dialog.show("Request", heroSearch, "Ok", null);
+        Hero hero1 = new Hero("Hello", main.getTheme().getImage("unicorn.jpg"));
+        Hero hero2 = new Hero("World", main.getTheme().getImage("unicorn.jpg"));
+
+        containerSearch.addComponent(createButtonHero(hero1, "Pdp / rempart / revita"));
+        containerSearch.addComponent(createButtonHero(hero2, "Ressu / revita"));
     }
 
     private void printAllHeroes() {
@@ -77,17 +81,18 @@ public class HeroesSearch extends Form implements ActionListener {
         Hero hero1 = new Hero("Miaou", main.getTheme().getImage("unicorn.jpg"));
         Hero hero2 = new Hero("Nyu", main.getTheme().getImage("unicorn.jpg"));
 
-        createButtonHero(hero1, "Pdp / rempart / revita");
-        createButtonHero(hero2, "Ressu / revita");
+        containerHeroes.addComponent(createButtonHero(hero1, "Pdp / rempart / revita"));
+        containerHeroes.addComponent(createButtonHero(hero2, "Ressu / revita"));
     }
 
-    private void createButtonHero(Hero hero, String subtitle) {
+    private MultiButton createButtonHero(Hero hero, String subtitle) {
         MultiButton infoHero = new MultiButton();
         infoHero.setEmblem(hero.getPicture());
         infoHero.setTextLine1(hero.getName());
         infoHero.setTextLine2(subtitle);
         infoHero.addActionListener(evt -> new HeroDisplay(main, hero));
-        containerHeroes.addComponent(infoHero);
+
+        return infoHero;
     }
 
     @Override
@@ -97,6 +102,7 @@ public class HeroesSearch extends Form implements ActionListener {
 
         if (obj == searchButton) {
             rechercheHeros();
+            show();
         }
 
         if (cmd == back) {

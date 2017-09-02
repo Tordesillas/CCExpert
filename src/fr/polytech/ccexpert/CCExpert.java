@@ -4,17 +4,19 @@ import com.codename1.ui.*;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
+import fr.polytech.ccexpert.view.GuildWar;
 import fr.polytech.ccexpert.view.HeroesSearch;
 import fr.polytech.ccexpert.view.Home;
 
 import java.io.IOException;
 
-
 public class CCExpert {
     private Form current;
     private Resources theme;
+
     private Home home;
     private HeroesSearch heroesSearch;
+    private GuildWar guildWar;
 
     public void init(Object context) {
         Toolbar.setGlobalToolbar(true);
@@ -36,6 +38,7 @@ public class CCExpert {
 
         home = new Home(this);
         heroesSearch = new HeroesSearch(this);
+        guildWar = new GuildWar(this);
 
         initializeToolbar();
 
@@ -56,8 +59,8 @@ public class CCExpert {
         heroesSearch.show();
     }
 
-    public void loadGdG() {
-
+    public void loadGuildWar() {
+        guildWar.show();
     }
 
     public void loadDonjons() {
