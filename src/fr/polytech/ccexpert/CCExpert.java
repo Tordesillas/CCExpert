@@ -4,8 +4,8 @@ import com.codename1.ui.*;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
-import fr.polytech.ccexpert.View.HeroesSearch;
-import fr.polytech.ccexpert.View.Home;
+import fr.polytech.ccexpert.view.HeroesSearch;
+import fr.polytech.ccexpert.view.Home;
 
 import java.io.IOException;
 

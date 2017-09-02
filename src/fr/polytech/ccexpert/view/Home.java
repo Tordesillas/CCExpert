@@ -1,4 +1,4 @@
-package fr.polytech.ccexpert.View;
+package fr.polytech.ccexpert.view;
 
 import com.codename1.ui.*;
 import com.codename1.ui.events.ActionEvent;

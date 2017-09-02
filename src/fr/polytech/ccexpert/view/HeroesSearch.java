@@ -1,7 +1,6 @@
-package fr.polytech.ccexpert.View;
+package fr.polytech.ccexpert.view;
 
 import com.codename1.components.MultiButton;
-import com.codename1.components.SpanLabel;
 import com.codename1.ui.*;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
@@ -9,6 +8,7 @@ import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.Toolbar.BackCommandPolicy;
 import fr.polytech.ccexpert.CCExpert;
+import fr.polytech.ccexpert.model.Hero;
 
 public class HeroesSearch extends Form implements ActionListener {
     private CCExpert main;
@@ -74,35 +74,20 @@ public class HeroesSearch extends Form implements ActionListener {
             containerHeroes.removeAll();
         }
         // BdD
-        createButtonHero("Nom du héros", "Pdp / rempart / revita", main.getTheme().getImage("unicorn.jpg"));
-        createButtonHero("Nyu", "Ressu / revita", main.getTheme().getImage("unicorn.jpg"));
+        Hero hero1 = new Hero("Miaou", main.getTheme().getImage("unicorn.jpg"));
+        Hero hero2 = new Hero("Nyu", main.getTheme().getImage("unicorn.jpg"));
+
+        createButtonHero(hero1, "Pdp / rempart / revita");
+        createButtonHero(hero2, "Ressu / revita");
     }
 
-    private void createButtonHero(String name, String subtitle, Image picture) {
+    private void createButtonHero(Hero hero, String subtitle) {
         MultiButton infoHero = new MultiButton();
-        infoHero.setEmblem(picture);
-        infoHero.setTextLine1(name);
+        infoHero.setEmblem(hero.getPicture());
+        infoHero.setTextLine1(hero.getName());
         infoHero.setTextLine2(subtitle);
-        infoHero.addActionListener(evt -> printHero(name));
+        infoHero.addActionListener(evt -> new HeroDisplay(main, hero));
         containerHeroes.addComponent(infoHero);
-    }
-
-    private void printHero(String name) {
-        Form hero = new Form(name);
-        hero.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
-
-        SpanLabel nameLabel = new SpanLabel("Nom : " + name);
-        Label data1 = new Label("Data");
-        Label data2 = new Label("Data again");
-        hero.addComponent(nameLabel);
-        hero.addComponent(data1);
-        hero.addComponent(data2);
-
-        Button back = new Button("Retour");
-        back.addActionListener(evt -> main.loadHeroes());
-        hero.addComponent(back);
-
-        hero.show();
     }
 
     @Override
