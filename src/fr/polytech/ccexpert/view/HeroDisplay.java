@@ -1,15 +1,12 @@
 package fr.polytech.ccexpert.view;
 
-import com.codename1.ui.Button;
-import com.codename1.ui.Form;
-import com.codename1.ui.Label;
+import com.codename1.ui.*;
 import com.codename1.ui.layouts.BoxLayout;
 import fr.polytech.ccexpert.CCExpert;
 import fr.polytech.ccexpert.model.Hero;
 
 class HeroDisplay extends Form {
     HeroDisplay(CCExpert main, Hero hero) {
-        setTitle(hero.getName());
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
 
         Label nameLabel = new Label("Nom : " + hero.getName());
@@ -19,9 +16,14 @@ class HeroDisplay extends Form {
         addComponent(data1);
         addComponent(data2);
 
-        Button back = new Button("Retour");
-        back.addActionListener(evt -> main.loadHeroes());
-        addComponent(back);
+        Command back = new Command("Retour", FontImage.MATERIAL_ARROW_BACK);
+        setBackCommand(back);
+
+        Toolbar toolbar = new Toolbar();
+        setToolbar(toolbar);
+        toolbar.setBackCommand(back, Toolbar.BackCommandPolicy.ALWAYS);
+        toolbar.setTitle(hero.getName());
+        addCommandListener(evt -> main.loadHeroes());
 
         show();
     }

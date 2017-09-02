@@ -4,6 +4,7 @@ import com.codename1.ui.*;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
+import fr.polytech.ccexpert.view.Dungeons;
 import fr.polytech.ccexpert.view.GuildWar;
 import fr.polytech.ccexpert.view.HeroesSearch;
 import fr.polytech.ccexpert.view.Home;
@@ -17,6 +18,7 @@ public class CCExpert {
     private Home home;
     private HeroesSearch heroesSearch;
     private GuildWar guildWar;
+    private Dungeons dungeons;
 
     public void init(Object context) {
         Toolbar.setGlobalToolbar(true);
@@ -39,6 +41,7 @@ public class CCExpert {
         home = new Home(this);
         heroesSearch = new HeroesSearch(this);
         guildWar = new GuildWar(this);
+        dungeons = new Dungeons(this);
 
         initializeToolbar();
 
@@ -63,22 +66,22 @@ public class CCExpert {
         guildWar.show();
     }
 
-    public void loadDonjons() {
-
+    public void loadDungeons() {
+        dungeons.show();
     }
 
     private void initializeToolbar() {
         Toolbar toolbar = home.getToolbar();
         Image icon = theme.getImage("unicorn.jpg");
         Container topBar = BorderLayout.east(new Label(icon));
-        topBar.add(BorderLayout.SOUTH, new Label("Miaou", "SidemenuTag"));
+        topBar.add(BorderLayout.SOUTH, new Label("CCExpert Menu", "SidemenuTag"));
         topBar.setUIID("SideCommand");
         toolbar.addComponentToSideMenu(topBar);
 
-        toolbar.addMaterialCommandToSideMenu("Home", FontImage.MATERIAL_HOME, e -> {});
-        toolbar.addMaterialCommandToSideMenu("Website", FontImage.MATERIAL_WEB, e -> {});
-        toolbar.addMaterialCommandToSideMenu("Settings", FontImage.MATERIAL_SETTINGS, e -> {});
-        toolbar.addMaterialCommandToSideMenu("About", FontImage.MATERIAL_INFO, e -> {});
+        toolbar.addMaterialCommandToSideMenu("Accueil", FontImage.MATERIAL_HOME, e -> home.show());
+        toolbar.addMaterialCommandToSideMenu("Héros", FontImage.MATERIAL_WEB, e -> heroesSearch.show());
+        toolbar.addMaterialCommandToSideMenu("Guerre de Guilde", FontImage.MATERIAL_SETTINGS, e -> guildWar.show());
+        toolbar.addMaterialCommandToSideMenu("Donjons", FontImage.MATERIAL_INFO, e -> dungeons.show());
     }
 
     public Resources getTheme() {

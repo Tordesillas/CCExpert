@@ -19,7 +19,6 @@ public class GuildWar extends Form implements ActionListener {
 
     public GuildWar(CCExpert main) {
         this.main = main;
-        setTitle("Guerre de guilde");
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
 
         Label labelPower = new Label("Puissance :");
@@ -42,6 +41,8 @@ public class GuildWar extends Form implements ActionListener {
         Toolbar toolbar = new Toolbar();
         setToolbar(toolbar);
         toolbar.setBackCommand(back, Toolbar.BackCommandPolicy.ALWAYS);
+        toolbar.setTitle("Guerre de guilde");
+
         addCommandListener(this);
 
         stats = new Container(new BoxLayout(BoxLayout.Y_AXIS));
@@ -54,12 +55,14 @@ public class GuildWar extends Form implements ActionListener {
         int power;
         int score;
         try {
-            power = Integer.parseInt(userPower.getText().trim().replace(" ", ""));
-            score = Integer.parseInt(userScore.getText().trim().replace(" ", ""));
+            power = Integer.parseInt(userPower.getText().trim());
+            score = Integer.parseInt(userScore.getText().trim());
         } catch (NumberFormatException e) {
             power = 0;
             score = 0;
         }
+        userPower.clear();
+        userScore.clear();
         Container tmp = sgw.printStats(power, score);
         replace(stats, tmp, CommonTransitions.createFade(500));
         stats = tmp;

@@ -1,6 +1,7 @@
 package fr.polytech.ccexpert.controller;
 
 import com.codename1.ui.Container;
+import com.codename1.ui.Dialog;
 import com.codename1.ui.Label;
 import com.codename1.ui.layouts.BoxLayout;
 
@@ -8,10 +9,6 @@ public class StatsGuildWar {
     private int power;
     private int score;
     private int averagePower;
-
-    public StatsGuildWar() {
-
-    }
 
     public Container printStats(int power, int score) {
         this.power = power;
@@ -21,6 +18,10 @@ public class StatsGuildWar {
 
         Container c = new Container(new BoxLayout(BoxLayout.Y_AXIS));
         c.addComponent(new Label("Puissance moyenne attaquée : " + averagePower +" 000"));
+
+        if (averagePower == 0) {
+            Dialog.show("Erreur", "Les données saisies sont incorrectes.", "ok", null);
+        }
         return c;
     }
 

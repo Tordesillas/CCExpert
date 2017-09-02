@@ -10,9 +10,9 @@ import fr.polytech.ccexpert.CCExpert;
 public class Home extends Form implements ActionListener {
     private CCExpert main;
     private Command quit;
-    private Button b1;
-    private Button b2;
-    private Button b3;
+    private Button buttonHeroes;
+    private Button buttonGuildWar;
+    private Button buttonDungeons;
 
     public Home(CCExpert main) {
         this.main = main;
@@ -23,21 +23,21 @@ public class Home extends Form implements ActionListener {
         setTitle("CCExpert");
 
         Container actions = new Container(new BoxLayout(BoxLayout.Y_AXIS));
-        b1 = new Button("Héros", main.getTheme().getImage("unicorn.jpg"));
-        b2 = new Button("GdG", main.getTheme().getImage("unicorn.jpg"));
-        b3 = new Button("Donjons", main.getTheme().getImage("unicorn.jpg"));
-        actions.addComponent(b1);
-        actions.addComponent(b2);
-        actions.addComponent(b3);
+        buttonHeroes = new Button("Héros", main.getTheme().getImage("unicorn.jpg"));
+        buttonGuildWar = new Button("Guerre de Guilde", main.getTheme().getImage("unicorn.jpg"));
+        buttonDungeons = new Button("Donjons", main.getTheme().getImage("unicorn.jpg"));
+        actions.addComponent(buttonHeroes);
+        actions.addComponent(buttonGuildWar);
+        actions.addComponent(buttonDungeons);
         addComponent(BorderLayout.CENTER, actions);
 
         quit = new Command("Quitter");
         addCommand(quit);
         setBackCommand(quit);
 
-        b1.addActionListener(this);
-        b2.addActionListener(this);
-        b3.addActionListener(this);
+        buttonHeroes.addActionListener(this);
+        buttonGuildWar.addActionListener(this);
+        buttonDungeons.addActionListener(this);
     }
 
     @Override
@@ -45,12 +45,12 @@ public class Home extends Form implements ActionListener {
         Command cmd = evt.getCommand();
         Object obj = evt.getSource();
 
-        if (obj == b1) {
+        if (obj == buttonHeroes) {
             main.loadHeroes();
-        } else if (obj == b2) {
+        } else if (obj == buttonGuildWar) {
             main.loadGuildWar();
-        } else if (obj == b3) {
-            main.loadDonjons();
+        } else if (obj == buttonDungeons) {
+            main.loadDungeons();
         }
 
         if (cmd == quit) {
