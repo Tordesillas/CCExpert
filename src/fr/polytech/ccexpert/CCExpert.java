@@ -37,17 +37,7 @@ public class CCExpert {
         home = new Home(this);
         heroesSearch = new HeroesSearch(this);
 
-        Toolbar tb = home.getToolbar();
-        Image icon = theme.getImage("unicorn.jpg");
-        Container topBar = BorderLayout.east(new Label(icon));
-        topBar.add(BorderLayout.SOUTH, new Label("Miaou", "SidemenuTag"));
-        topBar.setUIID("SideCommand");
-        tb.addComponentToSideMenu(topBar);
-
-        tb.addMaterialCommandToSideMenu("Home", FontImage.MATERIAL_HOME, e -> {});
-        tb.addMaterialCommandToSideMenu("Website", FontImage.MATERIAL_WEB, e -> {});
-        tb.addMaterialCommandToSideMenu("Settings", FontImage.MATERIAL_SETTINGS, e -> {});
-        tb.addMaterialCommandToSideMenu("About", FontImage.MATERIAL_INFO, e -> {});
+        initializeToolbar();
 
         home.show();
     }
@@ -72,6 +62,20 @@ public class CCExpert {
 
     public void loadDonjons() {
 
+    }
+
+    private void initializeToolbar() {
+        Toolbar toolbar = home.getToolbar();
+        Image icon = theme.getImage("unicorn.jpg");
+        Container topBar = BorderLayout.east(new Label(icon));
+        topBar.add(BorderLayout.SOUTH, new Label("Miaou", "SidemenuTag"));
+        topBar.setUIID("SideCommand");
+        toolbar.addComponentToSideMenu(topBar);
+
+        toolbar.addMaterialCommandToSideMenu("Home", FontImage.MATERIAL_HOME, e -> {});
+        toolbar.addMaterialCommandToSideMenu("Website", FontImage.MATERIAL_WEB, e -> {});
+        toolbar.addMaterialCommandToSideMenu("Settings", FontImage.MATERIAL_SETTINGS, e -> {});
+        toolbar.addMaterialCommandToSideMenu("About", FontImage.MATERIAL_INFO, e -> {});
     }
 
     public Resources getTheme() {
