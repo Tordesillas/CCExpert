@@ -8,9 +8,9 @@ public class Dungeon {
     private URL urlYoutube;
     private int door;
     private int base;
-    private List<String> heroes;
+    private List<Hero> heroes;
 
-    public Dungeon(URL urlYoutube, int door, int base, List<String> heroes) {
+    public Dungeon(URL urlYoutube, int door, int base, List<Hero> heroes) {
         this.urlYoutube = urlYoutube;
         this.door = door;
         this.base = base;
@@ -29,7 +29,7 @@ public class Dungeon {
         return base;
     }
 
-    public List<String> getHeroes() {
+    public List<Hero> getHeroes() {
         return heroes;
     }
 }

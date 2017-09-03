@@ -6,6 +6,9 @@ import com.codename1.ui.*;
 import com.codename1.ui.layouts.BoxLayout;
 import fr.polytech.ccexpert.CCExpert;
 import fr.polytech.ccexpert.model.Dungeon;
+import fr.polytech.ccexpert.model.Hero;
+
+import java.util.List;
 
 class DungeonDisplay extends Form {
 
@@ -29,6 +32,17 @@ class DungeonDisplay extends Form {
         toolbar.setTitle("Donjon " + dungeon.getDoor() + "-" + dungeon.getBase());
         addCommandListener(evt -> main.loadDungeons());
 
+        addComponent(listHeroes(dungeon.getHeroes()));
+        addComponent(listCrests(dungeon.getHeroes()));
+
         show();
+    }
+
+    private Container listHeroes(List<Hero> heroes) {
+        return new Container(new BoxLayout(BoxLayout.X_AXIS));
+    }
+
+    private Container listCrests(List<Hero> heroes) {
+        return new Container(new BoxLayout(BoxLayout.X_AXIS));
     }
 }
