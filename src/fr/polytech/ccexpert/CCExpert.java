@@ -4,10 +4,7 @@ import com.codename1.ui.*;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
-import fr.polytech.ccexpert.view.Dungeons;
-import fr.polytech.ccexpert.view.GuildWar;
-import fr.polytech.ccexpert.view.HeroesSearch;
-import fr.polytech.ccexpert.view.Home;
+import fr.polytech.ccexpert.view.*;
 
 import java.io.IOException;
 
@@ -19,6 +16,7 @@ public class CCExpert {
     private HeroesSearch heroesSearch;
     private GuildWar guildWar;
     private Dungeons dungeons;
+    private FeaturesToCome toCome;
 
     public void init(Object context) {
         Toolbar.setGlobalToolbar(true);
@@ -42,8 +40,9 @@ public class CCExpert {
         heroesSearch = new HeroesSearch(this);
         guildWar = new GuildWar(this);
         dungeons = new Dungeons(this);
+        toCome = new FeaturesToCome(this);
 
-        initializeToolbar();
+        setToolbar(home.getToolbar());
 
         home.show();
     }
@@ -70,21 +69,26 @@ public class CCExpert {
         dungeons.show();
     }
 
-    private void initializeToolbar() {
-        Toolbar toolbar = home.getToolbar();
-        Image icon = theme.getImage("unicorn.jpg");
-        Container topBar = BorderLayout.east(new Label(icon));
-        topBar.add(BorderLayout.SOUTH, new Label("CCExpert Menu", "SidemenuTag"));
-        topBar.setUIID("SideCommand");
-        toolbar.addComponentToSideMenu(topBar);
-
-        toolbar.addMaterialCommandToSideMenu("Accueil", FontImage.MATERIAL_HOME, e -> home.show());
-        toolbar.addMaterialCommandToSideMenu("Héros", FontImage.MATERIAL_WEB, e -> heroesSearch.show());
-        toolbar.addMaterialCommandToSideMenu("Guerre de Guilde", FontImage.MATERIAL_SETTINGS, e -> guildWar.show());
-        toolbar.addMaterialCommandToSideMenu("Donjons", FontImage.MATERIAL_INFO, e -> dungeons.show());
+    public void loadFeatToCome() {
+        toCome.show();
     }
 
     public Resources getTheme() {
         return theme;
+    }
+
+    public Toolbar setToolbar(Toolbar tb) {
+        Image icon = theme.getImage("unicorn.jpg");
+        Container topBar = BorderLayout.east(new Label(icon));
+        topBar.add(BorderLayout.SOUTH, new Label("CCExpert Menu", "SidemenuTag"));
+        topBar.setUIID("SideCommand");
+        tb.addComponentToSideMenu(topBar);
+
+        tb.addMaterialCommandToSideMenu("Accueil", FontImage.MATERIAL_HOME, e -> home.show());
+        tb.addMaterialCommandToSideMenu("Héros", FontImage.MATERIAL_WEB, e -> heroesSearch.show());
+        tb.addMaterialCommandToSideMenu("Guerre de Guilde", FontImage.MATERIAL_SETTINGS, e -> guildWar.show());
+        tb.addMaterialCommandToSideMenu("Donjons", FontImage.MATERIAL_INFO, e -> dungeons.show());
+        tb.addMaterialCommandToSideMenu("Fonctionnalités à venir", FontImage.MATERIAL_INFO, e -> toCome.show());
+        return tb;
     }
 }

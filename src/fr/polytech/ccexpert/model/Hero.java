@@ -17,6 +17,8 @@ public class Hero {
     private String name;
     private Image picture;
     private Crest crest;
+    //talent, vie, vitesse d'attaque, attaque, opt(3ème talent), gravure, attaque équipement, esquive, précision, critique
+    // dégats critiques, résistance critique
 
     public Hero(String name, Crest crest) {
         this.name = name;

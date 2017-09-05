@@ -13,6 +13,7 @@ public class Home extends Form implements ActionListener {
     private Button buttonHeroes;
     private Button buttonGuildWar;
     private Button buttonDungeons;
+    private Button buttonFeatures;
 
     public Home(CCExpert main) {
         this.main = main;
@@ -26,9 +27,11 @@ public class Home extends Form implements ActionListener {
         buttonHeroes = new Button("Héros", main.getTheme().getImage("unicorn.jpg"));
         buttonGuildWar = new Button("Guerre de Guilde", main.getTheme().getImage("unicorn.jpg"));
         buttonDungeons = new Button("Donjons", main.getTheme().getImage("unicorn.jpg"));
+        buttonFeatures = new Button("Fonctionnalités à venir", main.getTheme().getImage("unicorn.jpg"));
         actions.addComponent(buttonHeroes);
         actions.addComponent(buttonGuildWar);
         actions.addComponent(buttonDungeons);
+        actions.addComponent(buttonFeatures);
         addComponent(BorderLayout.CENTER, actions);
 
         quit = new Command("Quitter");
@@ -38,6 +41,7 @@ public class Home extends Form implements ActionListener {
         buttonHeroes.addActionListener(this);
         buttonGuildWar.addActionListener(this);
         buttonDungeons.addActionListener(this);
+        buttonFeatures.addActionListener(this);
     }
 
     @Override
@@ -51,6 +55,8 @@ public class Home extends Form implements ActionListener {
             main.loadGuildWar();
         } else if (obj == buttonDungeons) {
             main.loadDungeons();
+        } else if (obj == buttonFeatures) {
+            main.loadFeatToCome();
         }
 
         if (cmd == quit) {

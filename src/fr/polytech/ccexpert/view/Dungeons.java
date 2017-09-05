@@ -5,7 +5,6 @@ import com.codename1.io.URL;
 import com.codename1.ui.Command;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
-import com.codename1.ui.Toolbar;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.GridLayout;
@@ -26,10 +25,9 @@ public class Dungeons extends Form implements ActionListener {
         back = new Command("Retour", FontImage.MATERIAL_ARROW_BACK);
         setBackCommand(back);
 
-        Toolbar toolbar = new Toolbar();
-        setToolbar(toolbar);
-        toolbar.setBackCommand(back, Toolbar.BackCommandPolicy.ALWAYS);
-        toolbar.setTitle("Donjons");
+        setTitle("Donjons");
+        main.setToolbar(getToolbar());
+
         addCommandListener(this);
 
         try {
@@ -53,10 +51,7 @@ public class Dungeons extends Form implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent evt) {
-        Command cmd = evt.getCommand();
-        Object obj = evt.getSource();
-
-        if (cmd == back) {
+        if (evt.getCommand() == back) {
             main.loadHome();
         }
     }
