@@ -9,6 +9,7 @@ import fr.polytech.ccexpert.CCExpert;
 
 public class Simulators extends Form implements ActionListener {
     private Button buttonGuildWar;
+    private Button buttonShards;
     private Command back;
     private CCExpert main;
 
@@ -23,14 +24,16 @@ public class Simulators extends Form implements ActionListener {
 
         Container actions = new Container(new BoxLayout(BoxLayout.Y_AXIS));
         buttonGuildWar = new Button("Guerre de Guilde", main.getTheme().getImage("unicorn.jpg"));
+        buttonShards = new Button("Fragments", main.getTheme().getImage("unicorn.jpg"));
         actions.addComponent(buttonGuildWar);
+        actions.addComponent(buttonShards);
+        buttonGuildWar.addActionListener(this);
+        buttonShards.addActionListener(this);
         addComponent(BorderLayout.CENTER, actions);
 
         back = new Command("Retour", FontImage.MATERIAL_ARROW_BACK);
         setBackCommand(back);
-
         setToolbar(main.setToolbar(getToolbar()));
-
         addCommandListener(this);
     }
 
@@ -44,6 +47,8 @@ public class Simulators extends Form implements ActionListener {
 
         if (obj == buttonGuildWar) {
             main.loadGuildWar();
+        } else if (obj == buttonShards) {
+            main.loadShardSimulator();
         }
     }
 }

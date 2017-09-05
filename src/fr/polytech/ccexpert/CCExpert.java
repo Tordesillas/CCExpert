@@ -18,6 +18,7 @@ public class CCExpert {
     private Dungeons dungeons;
     private FeaturesToCome toCome;
     private Simulators simulators;
+    private ShardSimulator shardSimulator;
 
     public void init(Object context) {
         Toolbar.setGlobalToolbar(true);
@@ -43,6 +44,7 @@ public class CCExpert {
         toCome = new FeaturesToCome(this);
         simulators = new Simulators(this);
         guildWar = new GuildWar(this);
+        shardSimulator = new ShardSimulator(this);
 
         setToolbar(home.getToolbar());
 
@@ -77,6 +79,10 @@ public class CCExpert {
 
     public void loadSimulators() {
         simulators.show();
+    }
+
+    public void loadShardSimulator() {
+        shardSimulator.show();
     }
 
     public Resources getTheme() {

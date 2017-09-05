@@ -37,6 +37,7 @@ public class Home extends Form implements ActionListener {
         quit = new Command("Quitter");
         addCommand(quit);
         setBackCommand(quit);
+        addCommandListener(this);
 
         buttonHeroes.addActionListener(this);
         buttonSimulators.addActionListener(this);
