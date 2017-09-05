@@ -11,7 +11,7 @@ public class Home extends Form implements ActionListener {
     private CCExpert main;
     private Command quit;
     private Button buttonHeroes;
-    private Button buttonGuildWar;
+    private Button buttonSimulators;
     private Button buttonDungeons;
     private Button buttonFeatures;
 
@@ -25,11 +25,11 @@ public class Home extends Form implements ActionListener {
 
         Container actions = new Container(new BoxLayout(BoxLayout.Y_AXIS));
         buttonHeroes = new Button("Héros", main.getTheme().getImage("unicorn.jpg"));
-        buttonGuildWar = new Button("Guerre de Guilde", main.getTheme().getImage("unicorn.jpg"));
+        buttonSimulators = new Button("Simulateur", main.getTheme().getImage("unicorn.jpg"));
         buttonDungeons = new Button("Donjons", main.getTheme().getImage("unicorn.jpg"));
         buttonFeatures = new Button("Fonctionnalités à venir", main.getTheme().getImage("unicorn.jpg"));
         actions.addComponent(buttonHeroes);
-        actions.addComponent(buttonGuildWar);
+        actions.addComponent(buttonSimulators);
         actions.addComponent(buttonDungeons);
         actions.addComponent(buttonFeatures);
         addComponent(BorderLayout.CENTER, actions);
@@ -39,7 +39,7 @@ public class Home extends Form implements ActionListener {
         setBackCommand(quit);
 
         buttonHeroes.addActionListener(this);
-        buttonGuildWar.addActionListener(this);
+        buttonSimulators.addActionListener(this);
         buttonDungeons.addActionListener(this);
         buttonFeatures.addActionListener(this);
     }
@@ -51,8 +51,8 @@ public class Home extends Form implements ActionListener {
 
         if (obj == buttonHeroes) {
             main.loadHeroes();
-        } else if (obj == buttonGuildWar) {
-            main.loadGuildWar();
+        } else if (obj == buttonSimulators) {
+            main.loadSimulators();
         } else if (obj == buttonDungeons) {
             main.loadDungeons();
         } else if (obj == buttonFeatures) {

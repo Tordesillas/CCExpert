@@ -3,10 +3,12 @@ package fr.polytech.ccexpert.view;
 import com.codename1.ui.*;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
+import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import fr.polytech.ccexpert.CCExpert;
 
 public class Simulators extends Form implements ActionListener {
+    private Button buttonGuildWar;
     private Command back;
     private CCExpert main;
 
@@ -14,19 +16,34 @@ public class Simulators extends Form implements ActionListener {
         this.main = main;
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
 
-        
+        BorderLayout mainLayout = new BorderLayout();
+        mainLayout.setCenterBehavior(BorderLayout.CENTER_BEHAVIOR_CENTER);
+        setLayout(mainLayout);
+        setTitle("Simulateurs");
 
+        Container actions = new Container(new BoxLayout(BoxLayout.Y_AXIS));
+        buttonGuildWar = new Button("Guerre de Guilde", main.getTheme().getImage("unicorn.jpg"));
+        actions.addComponent(buttonGuildWar);
+        addComponent(BorderLayout.CENTER, actions);
 
         back = new Command("Retour", FontImage.MATERIAL_ARROW_BACK);
         setBackCommand(back);
 
         setToolbar(main.setToolbar(getToolbar()));
+
+        addCommandListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent evt) {
+        Object obj = evt.getSource();
+
         if (evt.getCommand() == back) {
             main.loadHome();
+        }
+
+        if (obj == buttonGuildWar) {
+            main.loadGuildWar();
         }
     }
 }

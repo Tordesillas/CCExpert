@@ -6,7 +6,6 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
-import com.codename1.ui.Toolbar.BackCommandPolicy;
 import fr.polytech.ccexpert.CCExpert;
 import fr.polytech.ccexpert.model.Hero;
 
@@ -22,6 +21,7 @@ public class HeroesSearch extends Form implements ActionListener {
     public HeroesSearch(CCExpert main) {
         this.main = main;
         setLayout(new BorderLayout());
+        setTitle("Héros");
 
         containerHeroes = new Container(new BoxLayout(BoxLayout.Y_AXIS));
         containerHeroes.setScrollableY(true);
@@ -44,10 +44,8 @@ public class HeroesSearch extends Form implements ActionListener {
         back = new Command("Retour", FontImage.MATERIAL_ARROW_BACK);
         setBackCommand(back);
 
-        Toolbar toolbar = new Toolbar();
-        setToolbar(toolbar);
-        toolbar.setBackCommand(back, BackCommandPolicy.ALWAYS);
-        toolbar.setTitleComponent(toolbarContainer);
+        main.setToolbar(getToolbar());
+        getToolbar().setTitleComponent(toolbarContainer);
 
         searchButton.addActionListener(this);
         addCommandListener(this);

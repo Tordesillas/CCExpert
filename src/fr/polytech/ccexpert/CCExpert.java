@@ -17,6 +17,7 @@ public class CCExpert {
     private GuildWar guildWar;
     private Dungeons dungeons;
     private FeaturesToCome toCome;
+    private Simulators simulators;
 
     public void init(Object context) {
         Toolbar.setGlobalToolbar(true);
@@ -38,9 +39,10 @@ public class CCExpert {
 
         home = new Home(this);
         heroesSearch = new HeroesSearch(this);
-        guildWar = new GuildWar(this);
         dungeons = new Dungeons(this);
         toCome = new FeaturesToCome(this);
+        simulators = new Simulators(this);
+        guildWar = new GuildWar(this);
 
         setToolbar(home.getToolbar());
 
@@ -73,6 +75,10 @@ public class CCExpert {
         toCome.show();
     }
 
+    public void loadSimulators() {
+        simulators.show();
+    }
+
     public Resources getTheme() {
         return theme;
     }
@@ -86,7 +92,7 @@ public class CCExpert {
 
         tb.addMaterialCommandToSideMenu("Accueil", FontImage.MATERIAL_HOME, e -> home.show());
         tb.addMaterialCommandToSideMenu("Héros", FontImage.MATERIAL_WEB, e -> heroesSearch.show());
-        tb.addMaterialCommandToSideMenu("Guerre de Guilde", FontImage.MATERIAL_SETTINGS, e -> guildWar.show());
+        tb.addMaterialCommandToSideMenu("Simulateurs", FontImage.MATERIAL_SETTINGS, e -> simulators.show());
         tb.addMaterialCommandToSideMenu("Donjons", FontImage.MATERIAL_INFO, e -> dungeons.show());
         tb.addMaterialCommandToSideMenu("Fonctionnalités à venir", FontImage.MATERIAL_INFO, e -> toCome.show());
         return tb;

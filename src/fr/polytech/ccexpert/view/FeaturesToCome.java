@@ -7,20 +7,21 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import fr.polytech.ccexpert.CCExpert;
 
-
 public class FeaturesToCome extends Form implements ActionListener {
+    private Button mail;
     private Command back;
     private CCExpert main;
 
     public FeaturesToCome(CCExpert main) {
         this.main = main;
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
+        setTitle("Fonctionnalités à venir");
 
         SpanLabel intro = new SpanLabel("La réalisation d'une application est un processus qui prend du temps.\n" +
                 "Les nouvelles fonctionnalités prendront un moment à arriver alors soyez patients.\n" +
                 "En attendant la suite, vous pouvez toujours me soutenir sur les réseaux sociaux " +
                 "ou en m'envoyant un mail ici :");
-        Button mail = new Button("Mail");
+        mail = new Button("Mail");
         SpanLabel content = new SpanLabel("\n\nVoici la liste des nouvelles fonctionnalités en cours :\n\n" +
                 "- Simulateur pour héros (talents, attributs, équipements...)\n" +
                 "- Traduction en anglais\n" +
@@ -29,7 +30,7 @@ public class FeaturesToCome extends Form implements ActionListener {
                 "Merci pour votre soutien.\n");
         Label picture = new Label(main.getTheme().getImage("unicorn.jpg"));
 
-        mail.addActionListener(evt -> Display.getInstance().execute("mailto:bubble83440@gmail.com"));
+        mail.addActionListener(this);
 
         addComponent(intro);
         addComponent(mail);
@@ -40,12 +41,20 @@ public class FeaturesToCome extends Form implements ActionListener {
         setBackCommand(back);
 
         setToolbar(main.setToolbar(getToolbar()));
+
+        addCommandListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent evt) {
+        Object obj = evt.getSource();
+
         if (evt.getCommand() == back) {
             main.loadHome();
+        }
+
+        if (obj == mail) {
+            Display.getInstance().execute("mailto:bubble83440@gmail.com");
         }
     }
 }

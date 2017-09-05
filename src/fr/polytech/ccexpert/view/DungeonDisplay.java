@@ -3,6 +3,8 @@ package fr.polytech.ccexpert.view;
 import com.codename1.components.MultiButton;
 import com.codename1.ui.*;
 
+import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import fr.polytech.ccexpert.CCExpert;
 import fr.polytech.ccexpert.model.Dungeon;
@@ -10,10 +12,14 @@ import fr.polytech.ccexpert.model.Hero;
 
 import java.util.List;
 
-class DungeonDisplay extends Form {
+class DungeonDisplay extends Form implements ActionListener {
+    private CCExpert main;
+    private Command back;
 
     DungeonDisplay(CCExpert main, Dungeon dungeon) {
+        this.main = main;
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
+        setTitle("Donjon " + dungeon.getDoor() + "-" + dungeon.getBase());
 
         MultiButton youtubeLink = new MultiButton("Voir la vidéo sur YouTube");
         youtubeLink.setIcon(main.getTheme().getImage("unicorn.jpg"));
@@ -21,19 +27,15 @@ class DungeonDisplay extends Form {
         addComponent(youtubeLink);
 
         Label title = new Label("Donjon " + dungeon.getDoor() + " - " + dungeon.getBase());
+
         addComponent(title);
-
-        Command back = new Command("Retour", FontImage.MATERIAL_ARROW_BACK);
-        setBackCommand(back);
-
-        Toolbar toolbar = new Toolbar();
-        setToolbar(toolbar);
-        toolbar.setBackCommand(back, Toolbar.BackCommandPolicy.ALWAYS);
-        toolbar.setTitle("Donjon " + dungeon.getDoor() + "-" + dungeon.getBase());
-        addCommandListener(evt -> main.loadDungeons());
-
         addComponent(listHeroes(dungeon.getHeroes()));
         addComponent(listCrests(dungeon.getHeroes()));
+
+        back = new Command("Retour", FontImage.MATERIAL_ARROW_BACK);
+        setBackCommand(back);
+        setToolbar(main.setToolbar(getToolbar()));
+        addCommandListener(this);
 
         show();
     }
@@ -44,5 +46,12 @@ class DungeonDisplay extends Form {
 
     private Container listCrests(List<Hero> heroes) {
         return new Container(new BoxLayout(BoxLayout.X_AXIS));
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent evt) {
+        if (evt.getCommand() == back) {
+            main.loadDungeons();
+        }
     }
 }
