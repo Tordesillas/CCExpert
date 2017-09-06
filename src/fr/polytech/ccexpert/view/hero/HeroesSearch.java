@@ -1,4 +1,4 @@
-package fr.polytech.ccexpert.view;
+package fr.polytech.ccexpert.view.hero;
 
 import com.codename1.components.MultiButton;
 import com.codename1.ui.*;

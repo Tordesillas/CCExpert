@@ -1,4 +1,4 @@
-package fr.polytech.ccexpert.view;
+package fr.polytech.ccexpert.view.simulator;
 
 import com.codename1.ui.*;
 import com.codename1.ui.animations.CommonTransitions;

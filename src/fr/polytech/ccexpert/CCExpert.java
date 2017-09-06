@@ -5,6 +5,12 @@ import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 import fr.polytech.ccexpert.view.*;
+import fr.polytech.ccexpert.view.dungeon.Dungeons;
+import fr.polytech.ccexpert.view.hero.HeroesSearch;
+import fr.polytech.ccexpert.view.simulator.CrystalSimulator;
+import fr.polytech.ccexpert.view.simulator.GuildWar;
+import fr.polytech.ccexpert.view.simulator.ShardSimulator;
+import fr.polytech.ccexpert.view.simulator.Simulators;
 
 import java.io.IOException;
 
@@ -19,6 +25,7 @@ public class CCExpert {
     private FeaturesToCome toCome;
     private Simulators simulators;
     private ShardSimulator shardSimulator;
+    private CrystalSimulator crystalSimulator;
 
     public void init(Object context) {
         Toolbar.setGlobalToolbar(true);
@@ -45,6 +52,7 @@ public class CCExpert {
         simulators = new Simulators(this);
         guildWar = new GuildWar(this);
         shardSimulator = new ShardSimulator(this);
+        crystalSimulator = new CrystalSimulator(this);
 
         setToolbar(home.getToolbar());
 
@@ -83,6 +91,10 @@ public class CCExpert {
 
     public void loadShardSimulator() {
         shardSimulator.show();
+    }
+
+    public void loadCrystalSimulator() {
+        crystalSimulator.show();
     }
 
     public Resources getTheme() {

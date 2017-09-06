@@ -1,4 +1,4 @@
-package fr.polytech.ccexpert.view;
+package fr.polytech.ccexpert.view.simulator;
 
 import com.codename1.ui.*;
 import com.codename1.ui.events.ActionEvent;
@@ -10,6 +10,7 @@ import fr.polytech.ccexpert.CCExpert;
 public class Simulators extends Form implements ActionListener {
     private Button buttonGuildWar;
     private Button buttonShards;
+    private Button buttonCrystals;
     private Command back;
     private CCExpert main;
 
@@ -25,10 +26,13 @@ public class Simulators extends Form implements ActionListener {
         Container actions = new Container(new BoxLayout(BoxLayout.Y_AXIS));
         buttonGuildWar = new Button("Guerre de Guilde", main.getTheme().getImage("unicorn.jpg"));
         buttonShards = new Button("Fragments", main.getTheme().getImage("unicorn.jpg"));
+        buttonCrystals = new Button("Cristaux bleus", main.getTheme().getImage("unicorn.jpg"));
         actions.addComponent(buttonGuildWar);
         actions.addComponent(buttonShards);
+        actions.addComponent(buttonCrystals);
         buttonGuildWar.addActionListener(this);
         buttonShards.addActionListener(this);
+        buttonCrystals.addActionListener(this);
         addComponent(BorderLayout.CENTER, actions);
 
         back = new Command("Retour", FontImage.MATERIAL_ARROW_BACK);
@@ -49,6 +53,8 @@ public class Simulators extends Form implements ActionListener {
             main.loadGuildWar();
         } else if (obj == buttonShards) {
             main.loadShardSimulator();
+        } else if (obj == buttonCrystals) {
+            main.loadCrystalSimulator();
         }
     }
 }

@@ -2,8 +2,6 @@ package fr.polytech.ccexpert.model;
 
 import com.codename1.ui.Image;
 
-import java.util.Optional;
-
 public class Hero {
     /*ANGEL, MARAUDER, HILL_GIANT, ENGINEER, FROST_WITCH, DRYAD, MARKSMAN, ALCHEMIST,    //Ordinary
     EXECUTIONER, ASSASSIN, WEREWOLF, CYCLOPS, SHAMAN, PAIN_DA, SERPENT_QUEEN, ICE_DEMON, TRITON,     //Elite
@@ -39,7 +37,7 @@ public class Hero {
         return picture;
     }
 
-    public Optional<Crest> getCrest() {
-        return Optional.ofNullable(crest);
+    public Crest getCrest() {
+        return crest;
     }
 }

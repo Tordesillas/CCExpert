@@ -1,6 +1,6 @@
 package fr.polytech.ccexpert.model;
 
-import java.util.EnumMap;
+import java.util.HashMap;
 
 public enum Crest {
     BLADE_SHELL, FLAME_GUARD, SCORCH, SLOW_DOWN, SPRINT, STONE_SKIN, TENACITY,
@@ -9,7 +9,7 @@ public enum Crest {
 
     private int level;
 
-    private static final EnumMap<Crest, String> linkPictures = new EnumMap<>(Crest.class);
+    private static final HashMap<Crest, String> linkPictures = new HashMap<>();
     static {
         linkPictures.put(BLADE_SHELL, "unicorn.jpg");
         linkPictures.put(FLAME_GUARD, "unicorn.jpg");

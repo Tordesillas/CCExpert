@@ -1,4 +1,4 @@
-package fr.polytech.ccexpert.view;
+package fr.polytech.ccexpert.view.simulator;
 
 import com.codename1.components.SpanLabel;
 import com.codename1.ui.*;
@@ -7,40 +7,35 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.spinner.NumericSpinner;
-import com.codename1.ui.spinner.Picker;
 import fr.polytech.ccexpert.CCExpert;
-import fr.polytech.ccexpert.controller.ProcessorShards;
+import fr.polytech.ccexpert.controller.CrystalProcessor;
 
-public class ShardSimulator extends Form implements ActionListener {
+public class CrystalSimulator extends Form implements ActionListener {
     private Command back;
     private Button lookFor;
     private Container res;
     private NumericSpinner lvlStart;
     private NumericSpinner lvlEnd;
-    private ProcessorShards ps;
-    private Picker category;
+    private CrystalProcessor cp;
     private CCExpert main;
 
-    public ShardSimulator(CCExpert main) {
+    public CrystalSimulator(CCExpert main) {
         this.main = main;
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
-        setTitle("Simulateurs");
-        ps = new ProcessorShards();
+        setTitle("Cristaux bleus");
+        cp = new CrystalProcessor();
 
         SpanLabel intro = new SpanLabel("Niveau actuel du héros :");
         lvlStart = new NumericSpinner();
         lvlStart.setMin(0);
-        lvlStart.setMax(10);
+        lvlStart.setMax(100);
         lvlStart.setStep(1);
         Label text = new Label("Niveau à atteindre :");
         lvlEnd = new NumericSpinner();
         lvlEnd.setMin(1);
-        lvlEnd.setMax(11);
+        lvlEnd.setMax(101);
         lvlEnd.setStep(1);
-        category = new Picker();
-        category.setType(Display.PICKER_TYPE_STRINGS);
-        category.setStrings("Légendaire", "Élite", "Ordinaire");
-        category.setSelectedString("Légendaire");
+
         lookFor = new Button("Analyser");
         lookFor.addActionListener(this);
 
@@ -50,7 +45,6 @@ public class ShardSimulator extends Form implements ActionListener {
         addComponent(lvlStart);
         addComponent(text);
         addComponent(lvlEnd);
-        addComponent(category);
         addComponent(lookFor);
         addComponent(res);
 
@@ -60,10 +54,10 @@ public class ShardSimulator extends Form implements ActionListener {
         addCommandListener(this);
     }
 
-    private void howManyShards() {
+    private void howManyCrystals() {
         int firstLevel = (int)lvlStart.getValue();
         int secondLevel = (int)lvlEnd.getValue();
-        Container tmp = ps.printShardAmount(firstLevel, secondLevel, category.getSelectedString());
+        Container tmp = cp.printCrystalAmount(firstLevel, secondLevel);
         replace(res, tmp, CommonTransitions.createFade(300));
         res = tmp;
     }
@@ -73,7 +67,7 @@ public class ShardSimulator extends Form implements ActionListener {
         Object obj = evt.getSource();
 
         if (obj == lookFor) {
-            howManyShards();
+            howManyCrystals();
             show();
         }
         if (evt.getCommand() == back) {

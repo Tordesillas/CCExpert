@@ -1,4 +1,4 @@
-package fr.polytech.ccexpert.view;
+package fr.polytech.ccexpert.view.dungeon;
 
 import com.codename1.components.MultiButton;
 import com.codename1.ui.*;
