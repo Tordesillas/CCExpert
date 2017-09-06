@@ -1,41 +1,36 @@
 package fr.polytech.ccexpert.model;
 
-import java.util.HashMap;
+import com.codename1.ui.Image;
 
-public enum Crest {
-    BLADE_SHELL, FLAME_GUARD, SCORCH, SLOW_DOWN, SPRINT, STONE_SKIN, TENACITY,
-    BULWARK, DEADLY_STIKE, HEAVY_BLOW, SCATTER, SELF_DESTRUCT, WAR_GOD, BERZERK,
-    LIFE_DRAIN, REVITALIZE, REVIVE, PSYSHIELD;
-
+public class Crest {
+    private String name;
     private int level;
+    private String description;
+    private Image picture;
 
-    private static final HashMap<Crest, String> linkPictures = new HashMap<>();
-    static {
-        linkPictures.put(BLADE_SHELL, "unicorn.jpg");
-        linkPictures.put(FLAME_GUARD, "unicorn.jpg");
-        linkPictures.put(SCORCH, "unicorn.jpg");
-        linkPictures.put(SLOW_DOWN, "unicorn.jpg");
-        linkPictures.put(SPRINT, "unicorn.jpg");
-        linkPictures.put(STONE_SKIN, "unicorn.jpg");
-        linkPictures.put(TENACITY, "unicorn.jpg");
-        linkPictures.put(BULWARK, "unicorn.jpg");
-        linkPictures.put(DEADLY_STIKE, "unicorn.jpg");
-        linkPictures.put(HEAVY_BLOW, "unicorn.jpg");
-        linkPictures.put(SCATTER, "unicorn.jpg");
-        linkPictures.put(SELF_DESTRUCT, "unicorn.jpg");
-        linkPictures.put(WAR_GOD, "unicorn.jpg");
-        linkPictures.put(BERZERK, "unicorn.jpg");
-        linkPictures.put(LIFE_DRAIN, "unicorn.jpg");
-        linkPictures.put(REVITALIZE, "unicorn.jpg");
-        linkPictures.put(REVIVE, "unicorn.jpg");
-        linkPictures.put(PSYSHIELD, "unicorn.jpg");
+    public Crest(String name, String description, Image picture) {
+        this.name = name;
+        this.description = description;
+        this.picture = picture;
     }
 
-    public String getPicture() {
-        return linkPictures.get(this);
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getLevel() {
         return level;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Image getPicture() {
+        return picture;
     }
 }

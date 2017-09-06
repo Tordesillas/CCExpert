@@ -40,12 +40,12 @@ public class Dungeons extends Form implements ActionListener {
             heroes.add(new Hero("Skeletica", main.getTheme().getImage("unicorn.jpg")));
             heroes.add(new Hero("Skeletica", main.getTheme().getImage("unicorn.jpg")));
             ArrayList<Crest> crests = new ArrayList<>();
-            crests.add(Crest.BERZERK);
-            crests.add(Crest.BERZERK);
-            crests.add(Crest.BERZERK);
-            crests.add(Crest.BERZERK);
-            crests.add(Crest.BERZERK);
-            crests.add(Crest.BERZERK);
+            crests.add(new Crest("Berzerk", "Bah ça berserk", main.getTheme().getImage("unicorn.jpg")));
+            crests.add(new Crest("Berzerk", "Bah ça berserk", main.getTheme().getImage("unicorn.jpg")));
+            crests.add(new Crest("Berzerk", "Bah ça berserk", main.getTheme().getImage("unicorn.jpg")));
+            crests.add(new Crest("Berzerk", "Bah ça berserk", main.getTheme().getImage("unicorn.jpg")));
+            crests.add(new Crest("Berzerk", "Bah ça berserk", main.getTheme().getImage("unicorn.jpg")));
+            crests.add(new Crest("Berzerk", "Bah ça berserk", main.getTheme().getImage("unicorn.jpg")));
             addComponent(createButtonDungeon(new Dungeon(new URL("https://www.youtube.com/watch?v=fdgi_GH6e_g"), 6, 1, heroes, crests)));
             addComponent(createButtonDungeon(new Dungeon(new URL("http://youtube.com"), 6, 2, heroes, crests)));
             addComponent(createButtonDungeon(new Dungeon(new URL("http://youtube.com"), 6, 3, heroes, crests)));

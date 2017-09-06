@@ -4,6 +4,7 @@ import com.codename1.ui.*;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
+import fr.polytech.ccexpert.model.Sets;
 import fr.polytech.ccexpert.view.*;
 import fr.polytech.ccexpert.view.dungeon.Dungeons;
 import fr.polytech.ccexpert.view.hero.HeroesSearch;
@@ -17,6 +18,7 @@ import java.io.IOException;
 public class CCExpert {
     private Form current;
     private Resources theme;
+    private Sets sets;
 
     private Home home;
     private HeroesSearch heroesSearch;
@@ -44,6 +46,8 @@ public class CCExpert {
             current.show();
             return;
         }
+
+        sets = new Sets();
 
         home = new Home(this);
         heroesSearch = new HeroesSearch(this);
@@ -97,10 +101,6 @@ public class CCExpert {
         crystalSimulator.show();
     }
 
-    public Resources getTheme() {
-        return theme;
-    }
-
     public Toolbar setToolbar(Toolbar tb) {
         Image icon = theme.getImage("unicorn.jpg");
         Container topBar = BorderLayout.east(new Label(icon));
@@ -114,5 +114,12 @@ public class CCExpert {
         tb.addMaterialCommandToSideMenu("Donjons", FontImage.MATERIAL_INFO, e -> dungeons.show());
         tb.addMaterialCommandToSideMenu("Fonctionnalités à venir", FontImage.MATERIAL_INFO, e -> toCome.show());
         return tb;
+    }
+    public Resources getTheme() {
+        return theme;
+    }
+
+    public Sets getSets() {
+        return sets;
     }
 }

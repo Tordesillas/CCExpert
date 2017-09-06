@@ -46,8 +46,9 @@ class DungeonDisplay extends Form implements ActionListener {
     private Container listHeroes(ArrayList<Hero> heroes) {
         Container cHeroes = new Container(new BoxLayout(BoxLayout.X_AXIS));
         cHeroes.setScrollableX(true);
+        Label l;
         for (Hero hero : heroes) {
-            Label l = new Label(hero.getName(), hero.getPicture());
+            l = new Label(hero.getName(), hero.getPicture());
             l.setTextPosition(Label.BOTTOM);
             cHeroes.addComponent(l);
         }
@@ -57,8 +58,11 @@ class DungeonDisplay extends Form implements ActionListener {
     private Container listCrests(ArrayList<Crest> crests) {
         Container cCrests = new Container(new BoxLayout(BoxLayout.X_AXIS));
         cCrests.setScrollableX(true);
+        Label l;
         for (Crest crest : crests) {
-            cCrests.addComponent(new Label(main.getTheme().getImage(crest.getPicture())));
+            l = new Label(crest.getName(), crest.getPicture());
+            l.setTextPosition(Label.BOTTOM);
+            cCrests.addComponent(l);
         }
         return cCrests;
     }
