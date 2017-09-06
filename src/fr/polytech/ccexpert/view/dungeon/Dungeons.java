@@ -9,9 +9,10 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.GridLayout;
 import fr.polytech.ccexpert.CCExpert;
+import fr.polytech.ccexpert.model.Crest;
 import fr.polytech.ccexpert.model.Dungeon;
+import fr.polytech.ccexpert.model.Hero;
 
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 public class Dungeons extends Form implements ActionListener {
@@ -31,11 +32,25 @@ public class Dungeons extends Form implements ActionListener {
         addCommandListener(this);
 
         try {
-            addComponent(createButtonDungeon(new Dungeon(new URL("https://www.youtube.com/watch?v=fdgi_GH6e_g"), 6, 1, new ArrayList<>())));
-            addComponent(createButtonDungeon(new Dungeon(new URL("http://youtube.com"), 6, 2, new ArrayList<>())));
-            addComponent(createButtonDungeon(new Dungeon(new URL("http://youtube.com"), 6, 3, new ArrayList<>())));
-            addComponent(createButtonDungeon(new Dungeon(new URL("http://youtube.com"), 6, 4, new ArrayList<>())));
-        } catch (URISyntaxException e) {
+            ArrayList<Hero> heroes = new ArrayList<>();
+            heroes.add(new Hero("Skeletica", main.getTheme().getImage("unicorn.jpg")));
+            heroes.add(new Hero("Skeletica", main.getTheme().getImage("unicorn.jpg")));
+            heroes.add(new Hero("Skeletica", main.getTheme().getImage("unicorn.jpg")));
+            heroes.add(new Hero("Skeletica", main.getTheme().getImage("unicorn.jpg")));
+            heroes.add(new Hero("Skeletica", main.getTheme().getImage("unicorn.jpg")));
+            heroes.add(new Hero("Skeletica", main.getTheme().getImage("unicorn.jpg")));
+            ArrayList<Crest> crests = new ArrayList<>();
+            crests.add(Crest.BERZERK);
+            crests.add(Crest.BERZERK);
+            crests.add(Crest.BERZERK);
+            crests.add(Crest.BERZERK);
+            crests.add(Crest.BERZERK);
+            crests.add(Crest.BERZERK);
+            addComponent(createButtonDungeon(new Dungeon(new URL("https://www.youtube.com/watch?v=fdgi_GH6e_g"), 6, 1, heroes, crests)));
+            addComponent(createButtonDungeon(new Dungeon(new URL("http://youtube.com"), 6, 2, heroes, crests)));
+            addComponent(createButtonDungeon(new Dungeon(new URL("http://youtube.com"), 6, 3, heroes, crests)));
+            addComponent(createButtonDungeon(new Dungeon(new URL("http://youtube.com"), 6, 4, heroes, crests)));
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -24,6 +24,7 @@ public class Simulators extends Form implements ActionListener {
         setTitle("Simulateurs");
 
         Container actions = new Container(new BoxLayout(BoxLayout.Y_AXIS));
+        actions.setScrollableY(true);
         buttonGuildWar = new Button("Guerre de Guilde", main.getTheme().getImage("unicorn.jpg"));
         buttonShards = new Button("Fragments", main.getTheme().getImage("unicorn.jpg"));
         buttonCrystals = new Button("Cristaux bleus", main.getTheme().getImage("unicorn.jpg"));

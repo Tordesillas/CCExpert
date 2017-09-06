@@ -31,8 +31,8 @@ public enum Crest {
         linkPictures.put(PSYSHIELD, "unicorn.jpg");
     }
 
-    public String getPicture(Crest crest) {
-        return linkPictures.get(crest);
+    public String getPicture() {
+        return linkPictures.get(this);
     }
 
     public int getLevel() {

@@ -24,6 +24,7 @@ public class Home extends Form implements ActionListener {
         setTitle("CCExpert");
 
         Container actions = new Container(new BoxLayout(BoxLayout.Y_AXIS));
+        actions.setScrollableY(true);
         buttonHeroes = new Button("Héros", main.getTheme().getImage("unicorn.jpg"));
         buttonSimulators = new Button("Simulateur", main.getTheme().getImage("unicorn.jpg"));
         buttonDungeons = new Button("Donjons", main.getTheme().getImage("unicorn.jpg"));
