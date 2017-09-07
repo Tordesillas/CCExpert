@@ -6,7 +6,7 @@ import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.l10n.L10NManager;
 
 public class ShardProcessor {
-    private static final int[] EXP_BY_LEVEL = {0, 1000, 3000, 10000, 30000, 70000, 120000, 200000, 500000, 800000, 1600000};
+    private static final int[] EXP_BY_LEVEL = {0, 2000, 10000, 30000, 70000, 120000, 200000, 500000, 800000, 1600000};
     private L10NManager l10n;
 
     public ShardProcessor() {
@@ -16,7 +16,7 @@ public class ShardProcessor {
     public Container printShardAmount(int firstLevel, int secondLevel, String category) {
         int amount = 0;
         if (secondLevel > firstLevel) {
-            for (int i = firstLevel; i <= secondLevel; i++) {
+            for (int i = firstLevel; i < secondLevel; i++) {
                 amount += EXP_BY_LEVEL[i];
             }
         }

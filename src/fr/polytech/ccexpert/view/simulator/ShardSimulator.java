@@ -29,12 +29,12 @@ public class ShardSimulator extends Form implements ActionListener {
 
         SpanLabel intro = new SpanLabel("Niveau actuel du héros :");
         lvlStart = new NumericSpinner();
-        lvlStart.setMin(0);
+        lvlStart.setMin(1);
         lvlStart.setMax(10);
         lvlStart.setStep(1);
         Label text = new Label("Niveau à atteindre :");
         lvlEnd = new NumericSpinner();
-        lvlEnd.setMin(1);
+        lvlEnd.setMin(2);
         lvlEnd.setMax(11);
         lvlEnd.setStep(1);
         category = new Picker();

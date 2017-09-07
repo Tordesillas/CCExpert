@@ -8,10 +8,7 @@ import fr.polytech.ccexpert.model.Sets;
 import fr.polytech.ccexpert.view.*;
 import fr.polytech.ccexpert.view.dungeon.Dungeons;
 import fr.polytech.ccexpert.view.hero.HeroesSearch;
-import fr.polytech.ccexpert.view.simulator.CrystalSimulator;
-import fr.polytech.ccexpert.view.simulator.GuildWar;
-import fr.polytech.ccexpert.view.simulator.ShardSimulator;
-import fr.polytech.ccexpert.view.simulator.Simulators;
+import fr.polytech.ccexpert.view.simulator.*;
 
 import java.io.IOException;
 
@@ -28,6 +25,7 @@ public class CCExpert {
     private Simulators simulators;
     private ShardSimulator shardSimulator;
     private CrystalSimulator crystalSimulator;
+    private DodgeSimulator dodgeSimulator;
 
     public void init(Object context) {
         Toolbar.setGlobalToolbar(true);
@@ -57,6 +55,7 @@ public class CCExpert {
         guildWar = new GuildWar(this);
         shardSimulator = new ShardSimulator(this);
         crystalSimulator = new CrystalSimulator(this);
+        dodgeSimulator = new DodgeSimulator(this);
 
         setToolbar(home.getToolbar());
 
@@ -99,6 +98,10 @@ public class CCExpert {
 
     public void loadCrystalSimulator() {
         crystalSimulator.show();
+    }
+
+    public void loadDodgeSimulator() {
+        dodgeSimulator.show();
     }
 
     public Toolbar setToolbar(Toolbar tb) {

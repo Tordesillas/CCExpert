@@ -11,6 +11,7 @@ public class Simulators extends Form implements ActionListener {
     private Button buttonGuildWar;
     private Button buttonShards;
     private Button buttonCrystals;
+    private Button buttonDodge;
     private Command back;
     private CCExpert main;
 
@@ -25,15 +26,18 @@ public class Simulators extends Form implements ActionListener {
 
         Container actions = new Container(new BoxLayout(BoxLayout.Y_AXIS));
         actions.setScrollableY(true);
-        buttonGuildWar = new Button("Guerre de Guilde", main.getTheme().getImage("unicorn.jpg"));
+        buttonGuildWar = new Button("Guerre de guilde", main.getTheme().getImage("unicorn.jpg"));
         buttonShards = new Button("Fragments", main.getTheme().getImage("unicorn.jpg"));
         buttonCrystals = new Button("Cristaux bleus", main.getTheme().getImage("unicorn.jpg"));
+        buttonDodge = new Button("Esquive", main.getTheme().getImage("unicorn.jpg"));
         actions.addComponent(buttonGuildWar);
         actions.addComponent(buttonShards);
         actions.addComponent(buttonCrystals);
+        actions.addComponent(buttonDodge);
         buttonGuildWar.addActionListener(this);
         buttonShards.addActionListener(this);
         buttonCrystals.addActionListener(this);
+        buttonDodge.addActionListener(this);
         addComponent(BorderLayout.CENTER, actions);
 
         back = new Command("Retour", FontImage.MATERIAL_ARROW_BACK);
@@ -56,6 +60,8 @@ public class Simulators extends Form implements ActionListener {
             main.loadShardSimulator();
         } else if (obj == buttonCrystals) {
             main.loadCrystalSimulator();
+        } else if (obj == buttonDodge) {
+            main.loadDodgeSimulator();
         }
     }
 }
