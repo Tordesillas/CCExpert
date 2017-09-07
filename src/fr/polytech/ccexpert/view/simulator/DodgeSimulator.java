@@ -26,7 +26,7 @@ public class DodgeSimulator extends Form implements ActionListener {
     public DodgeSimulator(CCExpert main) {
         this.main = main;
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
-        setTitle("Fragments");
+        setTitle("Esquive");
         dp = new DodgeProcessor();
 
         addComponent(new SpanLabel("Renseignez l'esquive de base du héros :"));

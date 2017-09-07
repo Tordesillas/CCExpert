@@ -20,12 +20,12 @@ public class AccuracyProcessor {
         c.addComponent(new SpanLabel("Le héros a " + l10n.format(100 + amount*100) + "% de chance de toucher le héros adverse.\n" +
                 "Il a donc 100% de chance d'attendre un héros possédant " + l10n.format(Math.round(amount*100)) +"% d'esquive.\n\n"));
         for (int nb : PERCENTAGES) {
-            double res = 100 + amount*100 - nb;
+            double res = Math.round(100 + amount*100 - nb);
             if (res >= 100) {
-                c.addComponent(new SpanLabel("Contre un héros à "+nb+"% de précision, le héros va toucher sa cible à coup sûr " +
+                c.addComponent(new SpanLabel("Contre un héros à "+nb+"% d'esquive, le héros va toucher sa cible à coup sûr " +
                         "avec techniquement une probabilité de " + res + "%.\n"));
             } else {
-                c.addComponent(new SpanLabel("Contre un héros à "+nb+"% de précision, le héros a " + res + "% de chance de toucher sa cible.\n"));
+                c.addComponent(new SpanLabel("Contre un héros à "+nb+"% d'esquive, le héros a " + res + "% de chance de toucher sa cible.\n"));
             }
         }
         return c;

@@ -8,13 +8,15 @@ import com.codename1.ui.layouts.BoxLayout;
 import fr.polytech.ccexpert.CCExpert;
 
 public class Simulators extends Form implements ActionListener {
+    private CCExpert main;
+    private Command back;
+
     private Button buttonGuildWar;
     private Button buttonShards;
     private Button buttonCrystals;
     private Button buttonDodge;
     private Button buttonAccuracy;
-    private Command back;
-    private CCExpert main;
+    private Button buttonAttackSpeed;
 
     public Simulators(CCExpert main) {
         this.main = main;
@@ -32,16 +34,19 @@ public class Simulators extends Form implements ActionListener {
         buttonCrystals = new Button("Cristaux bleus", main.getTheme().getImage("unicorn.jpg"));
         buttonDodge = new Button("Esquive", main.getTheme().getImage("unicorn.jpg"));
         buttonAccuracy = new Button("Précision", main.getTheme().getImage("unicorn.jpg"));
+        buttonAttackSpeed = new Button("Vitesse d'attaque", main.getTheme().getImage("unicorn.jpg"));
         actions.addComponent(buttonGuildWar);
         actions.addComponent(buttonShards);
         actions.addComponent(buttonCrystals);
         actions.addComponent(buttonDodge);
         actions.addComponent(buttonAccuracy);
+        actions.addComponent(buttonAttackSpeed);
         buttonGuildWar.addActionListener(this);
         buttonShards.addActionListener(this);
         buttonCrystals.addActionListener(this);
         buttonDodge.addActionListener(this);
         buttonAccuracy.addActionListener(this);
+        buttonAttackSpeed.addActionListener(this);
         addComponent(BorderLayout.CENTER, actions);
 
         back = new Command("Retour", FontImage.MATERIAL_ARROW_BACK);
@@ -68,6 +73,8 @@ public class Simulators extends Form implements ActionListener {
             main.loadDodgeSimulator();
         } else if (obj == buttonAccuracy) {
             main.loadAccuracySimulator();
+        } else if (obj == buttonAttackSpeed) {
+            main.loadAttackSpeedSimulator();
         }
     }
 }

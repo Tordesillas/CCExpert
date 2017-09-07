@@ -23,7 +23,7 @@ public class AccuracySimulator extends Form implements ActionListener {
     public AccuracySimulator(CCExpert main) {
         this.main = main;
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
-        setTitle("Fragments");
+        setTitle("Précision");
         ap = new AccuracyProcessor();
 
         addComponent(new SpanLabel("Renseignez la précsion de base du héros :"));
@@ -71,6 +71,7 @@ public class AccuracySimulator extends Form implements ActionListener {
             return 0;
         }
     }
+
     @Override
     public void actionPerformed(ActionEvent evt) {
         Object obj = evt.getSource();

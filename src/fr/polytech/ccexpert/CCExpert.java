@@ -27,6 +27,7 @@ public class CCExpert {
     private CrystalSimulator crystalSimulator;
     private DodgeSimulator dodgeSimulator;
     private AccuracySimulator accuracySimulator;
+    private AttackSpeedSimulator attackSpeedSimulator;
 
     public void init(Object context) {
         Toolbar.setGlobalToolbar(true);
@@ -58,6 +59,7 @@ public class CCExpert {
         crystalSimulator = new CrystalSimulator(this);
         dodgeSimulator = new DodgeSimulator(this);
         accuracySimulator = new AccuracySimulator(this);
+        attackSpeedSimulator = new AttackSpeedSimulator(this);
 
         setToolbar(home.getToolbar());
 
@@ -108,6 +110,10 @@ public class CCExpert {
 
     public void loadAccuracySimulator() {
         accuracySimulator.show();
+    }
+
+    public void loadAttackSpeedSimulator() {
+        attackSpeedSimulator.show();
     }
 
     public Toolbar setToolbar(Toolbar tb) {
