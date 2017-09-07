@@ -51,14 +51,14 @@ public class DodgeSimulator extends Form implements ActionListener {
         });
         addComponent(talentContainer);
 
-        addComponent(new SpanLabel("Le héros possède-t'il l'artefact pierre de foudre ?"));
+        addComponent(new SpanLabel("Le héros possède-t'il l'artefact Pierre de Foudre ?"));
         Container artefactContainer = new Container(new BoxLayout(BoxLayout.X_AXIS));
         artefactSwitch = new OnOffSwitch();
         artefactContainer.addComponent(artefactSwitch);
         artefactContainer.addComponent(new Label(main.getTheme().getImage("unicorn.jpg")));
         addComponent(artefactContainer);
 
-        addComponent(new SpanLabel("Le héros possède-t'il des équipements de précision ?"));
+        addComponent(new SpanLabel("Le héros possède-t'il des équipements d'esquive ?"));
         extraDodge = new TextField("", "Insérer l'esquive ajoutée par les équipements", 6, TextArea.NUMERIC);
         addComponent(extraDodge);
 
