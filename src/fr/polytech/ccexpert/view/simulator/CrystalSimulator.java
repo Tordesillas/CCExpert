@@ -4,26 +4,21 @@ import com.codename1.components.SpanLabel;
 import com.codename1.ui.*;
 import com.codename1.ui.animations.CommonTransitions;
 import com.codename1.ui.events.ActionEvent;
-import com.codename1.ui.events.ActionListener;
-import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.spinner.NumericSpinner;
 import fr.polytech.ccexpert.CCExpert;
 import fr.polytech.ccexpert.controller.CrystalProcessor;
 
-public class CrystalSimulator extends Form implements ActionListener {
-    private Command back;
-    private Button lookFor;
+public class CrystalSimulator extends Simulator {
     private Container res;
     private NumericSpinner lvlStart;
     private NumericSpinner lvlEnd;
     private CrystalProcessor cp;
-    private CCExpert main;
 
     public CrystalSimulator(CCExpert main) {
-        this.main = main;
-        setLayout(new BoxLayout(BoxLayout.Y_AXIS));
+        super(main);
         setTitle("Cristaux bleus");
         cp = new CrystalProcessor();
+        addCommandListener(this);
 
         SpanLabel intro = new SpanLabel("Niveau actuel du héros :");
         lvlStart = new NumericSpinner();
@@ -47,11 +42,6 @@ public class CrystalSimulator extends Form implements ActionListener {
         addComponent(lvlEnd);
         addComponent(lookFor);
         addComponent(res);
-
-        back = new Command("Retour", FontImage.MATERIAL_ARROW_BACK);
-        setBackCommand(back);
-        setToolbar(main.setToolbar(getToolbar()));
-        addCommandListener(this);
     }
 
     private void howManyCrystals() {
@@ -64,9 +54,7 @@ public class CrystalSimulator extends Form implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent evt) {
-        Object obj = evt.getSource();
-
-        if (obj == lookFor) {
+        if (evt.getSource() == lookFor) {
             howManyCrystals();
             show();
         }

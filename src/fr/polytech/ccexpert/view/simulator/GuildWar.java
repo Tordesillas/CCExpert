@@ -3,16 +3,12 @@ package fr.polytech.ccexpert.view.simulator;
 import com.codename1.ui.*;
 import com.codename1.ui.animations.CommonTransitions;
 import com.codename1.ui.events.ActionEvent;
-import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import fr.polytech.ccexpert.CCExpert;
 import fr.polytech.ccexpert.controller.StatsGuildWar;
 
-public class GuildWar extends Form implements ActionListener {
-    private CCExpert main;
-    private Button lookFor;
+public class GuildWar extends Simulator {
     private Button lookForFame;
-    private Command back;
     private Container stats;
     private Container stats2;
     private StatsGuildWar sgw;
@@ -22,18 +18,13 @@ public class GuildWar extends Form implements ActionListener {
     private ButtonGroup group;
 
     public GuildWar(CCExpert main) {
-        this.main = main;
-        setLayout(new BoxLayout(BoxLayout.Y_AXIS));
+        super(main);
         setTitle("Guerre de guilde");
         sgw = new StatsGuildWar();
+        addCommandListener(this);
 
         containerPower();
         containerFame();
-
-        back = new Command("Retour", FontImage.MATERIAL_ARROW_BACK);
-        setBackCommand(back);
-        setToolbar(main.setToolbar(getToolbar()));
-        addCommandListener(this);
     }
 
     private void containerPower() {
@@ -108,14 +99,6 @@ public class GuildWar extends Form implements ActionListener {
         Container tmp = sgw.printFameStats(score, position);
         replace(stats2, tmp, CommonTransitions.createFade(300));
         stats2 = tmp;
-    }
-
-    private int parseInteger(String n) {
-        try {
-            return Integer.parseInt(n);
-        } catch (NumberFormatException e) {
-            return 0;
-        }
     }
 
     @Override

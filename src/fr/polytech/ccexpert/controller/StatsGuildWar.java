@@ -22,7 +22,7 @@ public class StatsGuildWar {
     }
 
     public Container printFameStats(int score, int position) {
-        int fame = Math.round(score * (float)fameTab[position]);
+        int fame = (int)(score * (float)fameTab[position]);
 
         Container c = new Container(new BoxLayout(BoxLayout.Y_AXIS));
         c.addComponent(new Label("Gloire obtenue : " + fame));
