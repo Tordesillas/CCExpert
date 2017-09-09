@@ -38,6 +38,7 @@ public class HeroesSearch extends Form implements ActionListener {
         searchField = new TextField();
         searchField.setHint("Héros");
         searchButton = new Button(main.getTheme().getImage("unicorn.jpg"));
+        searchButton.setUIID("SearchButtonHeroes");
         toolbarContainer.addComponent(BorderLayout.CENTER, searchField);
         toolbarContainer.addComponent(BorderLayout.EAST, searchButton);
 

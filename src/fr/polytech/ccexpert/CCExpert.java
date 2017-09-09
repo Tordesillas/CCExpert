@@ -34,7 +34,7 @@ public class CCExpert {
 
         try {
             theme = Resources.openLayered("/theme");
-            UIManager.getInstance().setThemeProps(theme.getTheme(theme.getThemeResourceNames()[0]));
+            UIManager.getInstance().setThemeProps(theme.getTheme("B&O"));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -130,6 +130,7 @@ public class CCExpert {
         tb.addMaterialCommandToSideMenu("Fonctionnalités à venir", FontImage.MATERIAL_INFO, e -> toCome.show());
         return tb;
     }
+
     public Resources getTheme() {
         return theme;
     }
