@@ -30,10 +30,7 @@ abstract class Simulator extends Form implements ActionListener {
         aSwitch.setValue(false);
         container.addComponent(aSwitch);
         container.addComponent(new Label(main.getTheme().getImage(picture)));
-        NumericSpinner spinner = new NumericSpinner();
-        spinner.setMin(min);
-        spinner.setMax(max);
-        spinner.setStep(1);
+        NumericSpinner spinner = createSpinner(min, max);
         spinner.setVisible(false);
         container.addComponent(spinner);
         aSwitch.addActionListener(evt -> {
@@ -41,6 +38,15 @@ abstract class Simulator extends Form implements ActionListener {
             show();
         });
         return container;
+    }
+
+    NumericSpinner createSpinner(int min, int max) {
+        NumericSpinner spinner = new NumericSpinner();
+        spinner.setMin(min);
+        spinner.setMax(max);
+        spinner.setStep(1);
+        spinner.setVisible(true);
+        return spinner;
     }
 
     Container switchWithPicture(String picture) {

@@ -35,4 +35,8 @@ public class Hero {
     public Image getPicture() {
         return picture;
     }
+
+    public int getAttackSpeed() {
+        return attackSpeed;
+    }
 }
