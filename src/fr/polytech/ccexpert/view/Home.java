@@ -25,10 +25,10 @@ public class Home extends Form implements ActionListener {
 
         Container actions = new Container(new BoxLayout(BoxLayout.Y_AXIS));
         actions.setScrollableY(true);
-        buttonHeroes = new Button("Héros", main.getTheme().getImage("unicorn.jpg"));
-        buttonSimulators = new Button("Simulateur", main.getTheme().getImage("unicorn.jpg"));
-        buttonDungeons = new Button("Donjons", main.getTheme().getImage("unicorn.jpg"));
-        buttonFeatures = new Button("Fonctionnalités à venir", main.getTheme().getImage("unicorn.jpg"));
+        buttonHeroes = new Button("Héros", main.getTheme().getImage("heroes.png"));
+        buttonSimulators = new Button("Simulateur", main.getTheme().getImage("boss.png"));
+        buttonDungeons = new Button("Donjons", main.getTheme().getImage("donjons.png"));
+        buttonFeatures = new Button("Fonctionnalités à venir", main.getTheme().getImage("urodia.png"));
         actions.addComponent(buttonHeroes);
         actions.addComponent(buttonSimulators);
         actions.addComponent(buttonDungeons);

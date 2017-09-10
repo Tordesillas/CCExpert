@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <resource majorVersion="1" minorVersion="7" useXmlUI="false">
+    <image name="Anubis_Icon.png"  />
+    <image name="Arctica_Icon.png"  />
+    <image name="Aries_Icon.png"  />
+    <image name="Atlanticore_Icon.png"  />
     <theme name="B&amp;O">
         <val key="@PopupDialogArrowBool" value="false" />
         <val key="@calTitleDayStyleBool" value="true" />
@@ -665,10 +669,13 @@
     <image name="back-command.png1" type="multi"  />
     <image name="back-command.png2" type="multi"  />
     <image name="back-command.png3" type="multi"  />
+    <image name="Beast_Tamer_Icon.png"  />
+    <image name="blitz.png"  />
     <image name="border.png"  />
     <image name="border.png1"  />
     <image name="border.png2"  />
     <image name="border.png3"  />
+    <image name="boss.png"  />
     <image name="Button.borderBottom_1.png" type="multi"  />
     <image name="Button.borderBottom_10.png" type="multi"  />
     <image name="Button.borderBottom_11.png" type="multi"  />
@@ -764,9 +771,4 @@
     <image name="Button.borderTopL_6.png" type="multi"  />
     <image name="Button.borderTopL_7.png" type="multi"  />
     <image name="Button.borderTopL_8.png" type="multi"  />
-    <image name="Button.borderTopL_9.png" type="multi"  />
-    <image name="Button.borderTopR_1.png" type="multi"  />
-    <image name="Button.borderTopR_10.png" type="multi"  />
-    <image name="Button.borderTopR_11.png" type="multi"  />
-    <image name="Button.borderTopR_12.png" type="multi"  />
-    <image 
+    <image name="Button.borderTopL_9.png" type

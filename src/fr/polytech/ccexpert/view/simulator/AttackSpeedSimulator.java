@@ -34,19 +34,19 @@ public class AttackSpeedSimulator extends Simulator {
         addComponent(buttonHero);
 
         addComponent(new SpanLabel("Le héros possède-t-il Fou Furieux ?"));
-        ffContainer = switchWithSpinner(1, 9, "unicorn.jpg");
+        ffContainer = switchWithSpinner(1, 9, "Talent_Berserk.png");
         addComponent(ffContainer);
 
-        addComponent(new SpanLabel("Le héros possède-t-il l'artefact Blitzkrieg ?"));
-        artifactContainer = switchWithPicture("unicorn.jpg");
+        addComponent(new SpanLabel("Le héros possède-t-il l'artefact Blitz ?"));
+        artifactContainer = switchWithPicture("blitz.png");
         addComponent(artifactContainer);
 
         addComponent(new SpanLabel("Le héros possède-t-il en second talent Fureur ?"));
-        secondTalentContainer = switchWithSpinner(1, 6, "unicorn.jpg");
+        secondTalentContainer = switchWithSpinner(1, 6, "fury.png");
         addComponent(secondTalentContainer);
 
         addComponent(new SpanLabel("Le héros a-t-il à ses côtés un Duc ?"));
-        dukeContainer = switchWithSpinner(1, 11, "unicorn.jpg");
+        dukeContainer = switchWithSpinner(1, 11, "Pumpkin_Duke_Icon.png");
         addComponent(dukeContainer);
 
         addComponent(new SpanLabel("Combien de fois l'éventuel Duc a-t-il utilisé son pouvoir ?"));
@@ -54,11 +54,11 @@ public class AttackSpeedSimulator extends Simulator {
         addComponent(hitsSpinner);
 
         addComponent(new SpanLabel("Le héros a-t-il à ses côtés un Michaël ?"));
-        michaelContainer = switchWithSpinner(1, 11, "unicorn.jpg");
+        michaelContainer = switchWithSpinner(1, 11, "Michael_Icon.png");
         addComponent(michaelContainer);
 
         addComponent(new SpanLabel("Le héros a t'il à ses côtés un Destructeur ?"));
-        destroyerContainer = switchWithSpinner(1, 11, "unicorn.jpg");
+        destroyerContainer = switchWithSpinner(1, 11, "Destroyer_Icon.png");
         addComponent(destroyerContainer);
 
         lookFor.addActionListener(this);
@@ -69,7 +69,7 @@ public class AttackSpeedSimulator extends Simulator {
     }
 
     private void buildSelector() {
-        Hero[] heroes = { new Hero("Skeletica", main.getTheme().getImage("unicorn.jpg")),
+        Hero[] heroes = { new Hero("Skeletica", main.getTheme().getImage("Skeletica_Icon.png")),
                 new Hero("Ducilia", main.getTheme().getImage("unicorn.jpg")),
                 new Hero("Mage", main.getTheme().getImage("unicorn.jpg"))};
 

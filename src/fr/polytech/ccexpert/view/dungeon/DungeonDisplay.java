@@ -22,8 +22,8 @@ class DungeonDisplay extends Form implements ActionListener {
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
         setTitle("Donjon " + dungeon.getDoor() + "-" + dungeon.getBase());
 
-        MultiButton youtubeLink = new MultiButton("Voir la vidéo sur YouTube");
-        youtubeLink.setIcon(main.getTheme().getImage("unicorn.jpg"));
+        MultiButton youtubeLink = new MultiButton("Lien YouTube");
+        youtubeLink.setIcon(main.getTheme().getImage("youtube_black.png"));
         youtubeLink.addActionListener(evt -> Display.getInstance().execute(dungeon.getUrlYoutube().toString()));
         addComponent(youtubeLink);
 

@@ -27,11 +27,11 @@ public class DodgeSimulator extends Simulator {
         addComponent(basicDodge);
 
         addComponent(new SpanLabel("Le héros possède-t'il Brûlure ?"));
-        talentContainer = switchWithSpinner(1, 9, "unicorn.jpg");
+        talentContainer = switchWithSpinner(1, 9, "Talent_Scorch.png");
         addComponent(talentContainer);
 
         addComponent(new SpanLabel("Le héros possède-t'il l'artefact Pierre de Foudre ?"));
-        artefactContainer = switchWithPicture("unicorn.jpg");
+        artefactContainer = switchWithPicture("pierre_de_foudre.png");
         addComponent(artefactContainer);
 
         addComponent(new SpanLabel("Le héros possède-t'il des équipements d'esquive ?"));

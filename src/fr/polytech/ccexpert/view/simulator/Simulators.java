@@ -29,12 +29,12 @@ public class Simulators extends Form implements ActionListener {
 
         Container actions = new Container(new BoxLayout(BoxLayout.Y_AXIS));
         actions.setScrollableY(true);
-        buttonGuildWar = new Button("Guerre de guilde", main.getTheme().getImage("unicorn.jpg"));
-        buttonShards = new Button("Fragments", main.getTheme().getImage("unicorn.jpg"));
-        buttonCrystals = new Button("Cristaux bleus", main.getTheme().getImage("unicorn.jpg"));
-        buttonDodge = new Button("Esquive", main.getTheme().getImage("unicorn.jpg"));
-        buttonAccuracy = new Button("Précision", main.getTheme().getImage("unicorn.jpg"));
-        buttonAttackSpeed = new Button("Vitesse d'attaque", main.getTheme().getImage("unicorn.jpg"));
+        buttonGuildWar = new Button("Guerre de guilde", main.getTheme().getImage("guild_wars.png"));
+        buttonShards = new Button("Fragments", main.getTheme().getImage("shards.png"));
+        buttonCrystals = new Button("Cristaux bleus", main.getTheme().getImage("crystal.png"));
+        buttonDodge = new Button("Esquive", main.getTheme().getImage("pierre_de_foudre.png"));
+        buttonAccuracy = new Button("Précision", main.getTheme().getImage("garuda.png"));
+        buttonAttackSpeed = new Button("Vitesse d'attaque", main.getTheme().getImage("blitz.png"));
         actions.addComponent(buttonGuildWar);
         actions.addComponent(buttonShards);
         actions.addComponent(buttonCrystals);

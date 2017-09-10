@@ -26,7 +26,7 @@ public class AccuracySimulator extends Simulator {
         addComponent(basicAccuracy);
 
         addComponent(new SpanLabel("Le héros possède-t'il l'artefact Garuda ?"));
-        artefactContainer = switchWithPicture("unicorn.jpg");
+        artefactContainer = switchWithPicture("garuda.png");
         addComponent(artefactContainer);
 
         addComponent(new SpanLabel("Le héros possède-t'il des équipements de précision ?"));
