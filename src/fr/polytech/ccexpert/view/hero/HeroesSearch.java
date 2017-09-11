@@ -6,6 +6,7 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.util.MathUtil;
 import fr.polytech.ccexpert.CCExpert;
 import fr.polytech.ccexpert.model.Hero;
 
@@ -37,7 +38,8 @@ public class HeroesSearch extends Form implements ActionListener {
         Container toolbarContainer = new Container(new BorderLayout());
         searchField = new TextField();
         searchField.setHint("Héros");
-        searchButton = new Button(main.getTheme().getImage("magnifier_black.png"));
+        searchField.getStyle().setMargin(0, 0, 0, 0);
+        searchButton = new Button(main.getTheme().getImage("magnifier.svg").scaledWidth(MathUtil.round(Display.getInstance().getDisplayWidth() / 6)));
         searchButton.setUIID("SearchButtonHeroes");
         toolbarContainer.addComponent(BorderLayout.CENTER, searchField);
         toolbarContainer.addComponent(BorderLayout.EAST, searchButton);

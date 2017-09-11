@@ -5,6 +5,7 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.util.MathUtil;
 import fr.polytech.ccexpert.CCExpert;
 
 public class Home extends Form implements ActionListener {
@@ -25,10 +26,10 @@ public class Home extends Form implements ActionListener {
 
         Container actions = new Container(new BoxLayout(BoxLayout.Y_AXIS));
         actions.setScrollableY(true);
-        buttonHeroes = new Button("Héros", main.getTheme().getImage("heroes.png"));
-        buttonSimulators = new Button("Simulateur", main.getTheme().getImage("boss.png"));
-        buttonDungeons = new Button("Donjons", main.getTheme().getImage("donjons.png"));
-        buttonFeatures = new Button("Fonctionnalités à venir", main.getTheme().getImage("urodia.png"));
+        buttonHeroes = new Button("Héros", resizePicture(main.getTheme().getImage("heroes.png")));
+        buttonSimulators = new Button("Simulateur", resizePicture(main.getTheme().getImage("boss.png")));
+        buttonDungeons = new Button("Donjons", resizePicture(main.getTheme().getImage("donjons.png")));
+        buttonFeatures = new Button("En savoir plus", resizePicture(main.getTheme().getImage("urodia.png")));
         actions.addComponent(buttonHeroes);
         actions.addComponent(buttonSimulators);
         actions.addComponent(buttonDungeons);
@@ -44,6 +45,10 @@ public class Home extends Form implements ActionListener {
         buttonSimulators.addActionListener(this);
         buttonDungeons.addActionListener(this);
         buttonFeatures.addActionListener(this);
+    }
+
+    private Image resizePicture(Image image) {
+        return image.scaledHeight(MathUtil.round(Display.getInstance().getDisplayHeight() / (float)5.3));
     }
 
     @Override

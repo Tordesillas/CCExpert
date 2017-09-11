@@ -127,7 +127,7 @@ public class CCExpert {
         tb.addMaterialCommandToSideMenu("Héros", FontImage.MATERIAL_WEB, e -> heroesSearch.show());
         tb.addMaterialCommandToSideMenu("Simulateurs", FontImage.MATERIAL_SETTINGS, e -> simulators.show());
         tb.addMaterialCommandToSideMenu("Donjons", FontImage.MATERIAL_INFO, e -> dungeons.show());
-        tb.addMaterialCommandToSideMenu("Fonctionnalités à venir", FontImage.MATERIAL_INFO, e -> toCome.show());
+        tb.addMaterialCommandToSideMenu("En savoir plus", FontImage.MATERIAL_INFO, e -> toCome.show());
         return tb;
     }
 

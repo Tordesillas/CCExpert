@@ -6,6 +6,7 @@ import com.codename1.ui.*;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.util.MathUtil;
 import fr.polytech.ccexpert.CCExpert;
 import fr.polytech.ccexpert.model.Crest;
 import fr.polytech.ccexpert.model.Dungeon;
@@ -23,7 +24,7 @@ class DungeonDisplay extends Form implements ActionListener {
         setTitle("Donjon " + dungeon.getDoor() + "-" + dungeon.getBase());
 
         MultiButton youtubeLink = new MultiButton("Lien YouTube");
-        youtubeLink.setIcon(main.getTheme().getImage("youtube_black.png"));
+        youtubeLink.setIcon(main.getTheme().getImage("youtube.svg").scaledWidth(MathUtil.round(Display.getInstance().getDisplayWidth() / 3)));
         youtubeLink.addActionListener(evt -> Display.getInstance().execute(dungeon.getUrlYoutube().toString()));
         addComponent(youtubeLink);
 
@@ -48,7 +49,7 @@ class DungeonDisplay extends Form implements ActionListener {
         cHeroes.setScrollableX(true);
         Label l;
         for (Hero hero : heroes) {
-            l = new Label(hero.getName(), hero.getPicture());
+            l = new Label(hero.getName(), hero.getPicture().scaledWidth(MathUtil.round(Display.getInstance().getDisplayWidth() / 4)));
             l.setTextPosition(Label.BOTTOM);
             cHeroes.addComponent(l);
         }
@@ -60,7 +61,7 @@ class DungeonDisplay extends Form implements ActionListener {
         cCrests.setScrollableX(true);
         Label l;
         for (Crest crest : crests) {
-            l = new Label(crest.getName(), crest.getPicture());
+            l = new Label(crest.getName(), crest.getPicture().scaledWidth(MathUtil.round(Display.getInstance().getDisplayWidth() / 4)));
             l.setTextPosition(Label.BOTTOM);
             cCrests.addComponent(l);
         }

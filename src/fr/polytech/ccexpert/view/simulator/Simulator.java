@@ -5,6 +5,7 @@ import com.codename1.ui.*;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.spinner.NumericSpinner;
+import com.codename1.util.MathUtil;
 import fr.polytech.ccexpert.CCExpert;
 
 abstract class Simulator extends Form implements ActionListener {
@@ -29,7 +30,7 @@ abstract class Simulator extends Form implements ActionListener {
         OnOffSwitch aSwitch = new OnOffSwitch();
         aSwitch.setValue(false);
         container.addComponent(aSwitch);
-        container.addComponent(new Label(main.getTheme().getImage(picture)));
+        container.addComponent(new Label(resizePicture(main.getTheme().getImage(picture))));
         NumericSpinner spinner = createSpinner(min, max);
         spinner.setVisible(false);
         container.addComponent(spinner);
@@ -53,7 +54,7 @@ abstract class Simulator extends Form implements ActionListener {
         Container container = new Container(new BoxLayout(BoxLayout.X_AXIS));
         OnOffSwitch aSwitch = new OnOffSwitch();
         container.addComponent(aSwitch);
-        container.addComponent(new Label(main.getTheme().getImage(picture)));
+        container.addComponent(new Label(resizePicture(main.getTheme().getImage(picture))));
         return container;
     }
 
@@ -91,5 +92,9 @@ abstract class Simulator extends Form implements ActionListener {
         } catch (NumberFormatException e) {
             return 0;
         }
+    }
+
+    private Image resizePicture(Image image) {
+        return image.scaledHeight(MathUtil.round(Display.getInstance().getDisplayHeight() / 6));
     }
 }

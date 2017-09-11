@@ -15,14 +15,14 @@ public class FeaturesToCome extends Form implements ActionListener {
     public FeaturesToCome(CCExpert main) {
         this.main = main;
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
-        setTitle("Fonctionnalités à venir");
+        setTitle("En savoir plus");
 
         SpanLabel intro = new SpanLabel("La réalisation d'une application est un processus qui prend du temps.\n" +
                 "Les nouvelles fonctionnalités prendront un moment à arriver alors soyez patients.\n" +
                 "En attendant la suite, vous pouvez toujours me soutenir sur les réseaux sociaux " +
                 "ou en m'envoyant un mail ici :");
-        mail = new Button(main.getTheme().getImage("mail_white.png"));
-        SpanLabel content = new SpanLabel("\n\nVoici la liste des nouvelles fonctionnalités en cours :\n\n" +
+        mail = new Button(main.getTheme().getImage("mail.svg").scaledWidth(100));
+        SpanLabel content = new SpanLabel("\nVoici la liste des nouvelles fonctionnalités en cours :\n\n" +
                 "- Simulateur pour héros (talents, attributs, équipements...)\n" +
                 "- Traduction en anglais\n" +
                 "- Page de conseils\n\n" +
@@ -54,7 +54,7 @@ public class FeaturesToCome extends Form implements ActionListener {
         }
 
         if (obj == mail) {
-            Display.getInstance().execute("mailto:bubble83440@gmail.com");
+            Display.getInstance().execute("mailto:gcasagrande2812@gmail.com");
         }
     }
 }

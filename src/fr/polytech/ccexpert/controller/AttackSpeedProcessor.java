@@ -3,6 +3,7 @@ package fr.polytech.ccexpert.controller;
 import com.codename1.components.SpanLabel;
 import com.codename1.l10n.L10NManager;
 import com.codename1.ui.Container;
+import com.codename1.util.MathUtil;
 import fr.polytech.ccexpert.model.Hero;
 
 public class AttackSpeedProcessor {
@@ -20,7 +21,7 @@ public class AttackSpeedProcessor {
         Container c = new Container();
         int basic = (hero == null) ? 1000 : hero.getAttackSpeed();
         double artifact = (blitz) ? 1.3 : 1;
-        double res = basic / (Math.pow(skill[duke], hits) * skill[destroyer] * skillMichael[mika] * ffStats[ff] * artifact * furyStats[fury]);
+        double res = basic / (MathUtil.pow(skill[duke], hits) * skill[destroyer] * skillMichael[mika] * ffStats[ff] * artifact * furyStats[fury]);
         c.addComponent(new SpanLabel("Nouvelle vitesse d'attaque : " + l10n.format(res)));
         return c;
     }

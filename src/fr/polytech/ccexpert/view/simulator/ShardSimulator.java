@@ -36,6 +36,7 @@ public class ShardSimulator extends Simulator {
         category.setType(Display.PICKER_TYPE_STRINGS);
         category.setStrings("Légendaire", "Élite", "Ordinaire");
         category.setSelectedString("Légendaire");
+        category.getStyle().setMarginTop(5);
         lookFor = new Button("Analyser");
         lookFor.addActionListener(this);
 
