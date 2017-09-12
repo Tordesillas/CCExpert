@@ -35,7 +35,6 @@ public class CCExpert {
         try {
             theme = Resources.openLayered("/theme");
             UIManager.getInstance().setThemeProps(theme.getTheme("B&O"));
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -124,9 +123,9 @@ public class CCExpert {
         tb.addComponentToSideMenu(topBar);
 
         tb.addMaterialCommandToSideMenu("Accueil", FontImage.MATERIAL_HOME, e -> home.show());
-        tb.addMaterialCommandToSideMenu("Héros", FontImage.MATERIAL_WEB, e -> heroesSearch.show());
-        tb.addMaterialCommandToSideMenu("Simulateurs", FontImage.MATERIAL_SETTINGS, e -> simulators.show());
-        tb.addMaterialCommandToSideMenu("Donjons", FontImage.MATERIAL_INFO, e -> dungeons.show());
+        tb.addMaterialCommandToSideMenu("Héros", FontImage.MATERIAL_PERM_IDENTITY, e -> heroesSearch.show());
+        tb.addMaterialCommandToSideMenu("Simulateurs", FontImage.MATERIAL_BUILD, e -> simulators.show());
+        tb.addMaterialCommandToSideMenu("Donjons", FontImage.MATERIAL_GAMEPAD, e -> dungeons.show());
         tb.addMaterialCommandToSideMenu("En savoir plus", FontImage.MATERIAL_INFO, e -> toCome.show());
         return tb;
     }

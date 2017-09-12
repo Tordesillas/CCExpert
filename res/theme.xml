@@ -40,9 +40,9 @@
         <val key="@radioUnselectedFocusImage" value="Radio_btn_Normal.png" />
         <val key="@radioUnselectedImage" value="Radio_btn_Normal.png" />
         <val key="@showBackCommandOnTitleBool" value="true" />
-        <val key="@switchMaskImage" value="img_bgr_tile.png" />
-        <val key="@switchOffImage" value="switch_off.svg" />
-        <val key="@switchOnImage" value="switch_on.svg" />
+        <val key="@switchMaskImage" value="invisible.png" />
+        <val key="@switchOffImage" value="switch_off.png" />
+        <val key="@switchOnImage" value="switch_on.png" />
         <val key="@tabPlacementInt" value="0" />
         <val key="Button.align" value="4" />
         <gradient key="Button.bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
@@ -54,6 +54,8 @@
         <val key="Button.margin" value="1,1,3,3" />
         <val key="Button.padUnit" value="2,2,2,2" />
         <val key="Button.padding" value="1,1,1,1" />
+        <val key="Button.press#bgColor" value="e4b928" />
+        <val key="Button.press#fgColor" value="333333" />
         <val key="Button.transparency" value="0" />
         <val key="CalendarDate.bgColor" value="486666" />
         <val key="CalendarDate.fgColor" value="0" />
@@ -484,28 +486,21 @@
         <val key="SideCommand.margin" value="0,1,0,0" />
         <val key="SideCommand.padUnit" value="2,2,2,2" />
         <val key="SideCommand.padding" value="3,3,3,3" />
+        <val key="SideCommand.press#align" value="1" />
+        <val key="SideCommand.press#bgColor" value="111111" />
         <gradient key="SideCommand.press#bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
         <val key="SideCommand.press#bgType" value="0" />
         <border key="SideCommand.press#border" type="empty" />
-        <val key="SideCommand.press#fgColor" value="ffffff" />
-        <font key="SideCommand.press#font" type="ttf" face="0" style="1" size="16" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
-        <val key="SideCommand.press#marUnit" value="2,2,2,2" />
-        <val key="SideCommand.press#margin" value="1,0,1,1" />
-        <val key="SideCommand.press#padUnit" value="2,0,2,0" />
-        <val key="SideCommand.press#padding" value="1,1,0,0" />
+        <val key="SideCommand.press#derive" value="SideCommand" />
+        <val key="SideCommand.press#fgColor" value="ffdc67" />
+        <font key="SideCommand.press#font" type="ttf" face="0" style="0" size="0" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="3.0" />
         <val key="SideCommand.press#textDecoration" value="0" />
-        <val key="SideCommand.press#transparency" value="0" />
-        <val key="SideCommand.sel#bgColor" value="ff0000" />
+        <val key="SideCommand.press#transparency" value="255" />
         <gradient key="SideCommand.sel#bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
         <val key="SideCommand.sel#bgType" value="0" />
         <border key="SideCommand.sel#border" type="empty" />
         <val key="SideCommand.sel#derive" value="SideCommand" />
-        <val key="SideCommand.sel#fgColor" value="ffffff" />
         <font key="SideCommand.sel#font" type="ttf" face="0" style="1" size="16" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
-        <val key="SideCommand.sel#marUnit" value="2,2,2,2" />
-        <val key="SideCommand.sel#margin" value="1,0,1,1" />
-        <val key="SideCommand.sel#padUnit" value="2,0,2,0" />
-        <val key="SideCommand.sel#padding" value="1,1,0,0" />
         <val key="SideCommand.sel#textDecoration" value="0" />
         <val key="SideCommand.sel#transparency" value="0" />
         <val key="SideCommand.textDecoration" value="0" />
@@ -513,6 +508,10 @@
         <val key="SideNavigationPanel.bgColor" value="ffffff" />
         <val key="SideNavigationPanel.margin" value="0,0,0,0" />
         <val key="SideNavigationPanel.padding" value="0,0,0,0" />
+        <val key="SideNavigationPanel.press#bgColor" value="ffffff" />
+        <val key="SideNavigationPanel.press#margin" value="0,0,0,0" />
+        <val key="SideNavigationPanel.press#padding" value="0,0,0,0" />
+        <val key="SideNavigationPanel.press#transparency" value="255" />
         <val key="SideNavigationPanel.transparency" value="255" />
         <val key="SidemenuTag.derive" value="SideCommand" />
         <font key="SidemenuTag.font" type="ttf" face="0" style="0" size="0" name="native:ItalicLight" family="native:ItalicLight" sizeSettings="3" actualSize="3.0" />
@@ -680,16 +679,9 @@
     <image name="border.png2"  />
     <image name="border.png3"  />
     <image name="boss.png"  />
-    <image name="Button.borderBottom_1.png" type="multi"  />
-    <image name="Button.borderBottom_10.png" type="multi"  />
-    <image name="Button.borderBottom_11.png" type="multi"  />
     <image name="Button.borderBottom_12.png" type="multi"  />
-    <image name="Button.borderBottom_2.png" type="multi"  />
     <image name="Button.borderBottom_3.png" type="multi"  />
-    <image name="Button.borderBottom_4.png" type="multi"  />
     <image name="Button.borderBottom_5.png" type="multi"  />
-    <image name="Button.borderBottom_6.png" type="multi"  />
-    <image name="Button.borderBottom_7.png" type="multi"  />
     <image name="Button.borderBottom_8.png" type="multi"  />
     <image name="Button.borderBottom_9.png" type="multi"  />
     <image name="Button.borderBottomL_1.png" type="multi"  />
@@ -771,4 +763,12 @@
     <image name="Button.borderTopL_2.png" type="multi"  />
     <image name="Button.borderTopL_3.png" type="multi"  />
     <image name="Button.borderTopL_4.png" type="multi"  />
-    <image name="Button.borderTopL_5.png" t
+    <image name="Button.borderTopL_5.png" type="multi"  />
+    <image name="Button.borderTopL_6.png" type="multi"  />
+    <image name="Button.borderTopL_7.png" type="multi"  />
+    <image name="Button.borderTopL_8.png" type="multi"  />
+    <image name="Button.borderTopL_9.png" type="multi"  />
+    <image name="Button.borderTopR_1.png" type="multi"  />
+    <image name="Button.borderTopR_10.png" type="multi"  />
+    <image name="Button.borderTopR_11.png" type="multi"  />
+    <image name="Button.borderTopR_12.p
