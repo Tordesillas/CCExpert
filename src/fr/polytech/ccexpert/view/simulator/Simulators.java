@@ -18,6 +18,7 @@ public class Simulators extends Form implements ActionListener {
     private Button buttonDodge;
     private Button buttonAccuracy;
     private Button buttonAttackSpeed;
+    private Button buttonAetherocks;
 
     public Simulators(CCExpert main) {
         this.main = main;
@@ -36,18 +37,21 @@ public class Simulators extends Form implements ActionListener {
         buttonDodge = new Button("Esquive", resizePicture(main.getTheme().getImage("pierre_de_foudre.png")));
         buttonAccuracy = new Button("Précision", resizePicture(main.getTheme().getImage("garuda.png")));
         buttonAttackSpeed = new Button("Vitesse d'attaque", resizePicture(main.getTheme().getImage("blitz.png")));
+        buttonAetherocks = new Button("Aura-guerières");
         actions.addComponent(buttonGuildWar);
         actions.addComponent(buttonShards);
         actions.addComponent(buttonCrystals);
         actions.addComponent(buttonDodge);
         actions.addComponent(buttonAccuracy);
         actions.addComponent(buttonAttackSpeed);
+        actions.addComponent(buttonAetherocks);
         buttonGuildWar.addActionListener(this);
         buttonShards.addActionListener(this);
         buttonCrystals.addActionListener(this);
         buttonDodge.addActionListener(this);
         buttonAccuracy.addActionListener(this);
         buttonAttackSpeed.addActionListener(this);
+        buttonAetherocks.addActionListener(this);
         addComponent(BorderLayout.CENTER, actions);
 
         back = new Command("Retour", FontImage.MATERIAL_ARROW_BACK);
@@ -80,6 +84,8 @@ public class Simulators extends Form implements ActionListener {
             main.loadAccuracySimulator();
         } else if (obj == buttonAttackSpeed) {
             main.loadAttackSpeedSimulator();
+        } else if (obj == buttonAetherocks) {
+            main.loadAetherocksSimulator();
         }
     }
 }

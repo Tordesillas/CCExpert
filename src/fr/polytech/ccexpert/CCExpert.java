@@ -28,6 +28,7 @@ public class CCExpert {
     private DodgeSimulator dodgeSimulator;
     private AccuracySimulator accuracySimulator;
     private AttackSpeedSimulator attackSpeedSimulator;
+    private AetherockSimulator aetherockSimulator;
 
     public void init(Object context) {
         Toolbar.setGlobalToolbar(true);
@@ -59,6 +60,7 @@ public class CCExpert {
         dodgeSimulator = new DodgeSimulator(this);
         accuracySimulator = new AccuracySimulator(this);
         attackSpeedSimulator = new AttackSpeedSimulator(this);
+        aetherockSimulator = new AetherockSimulator(this);
 
         setToolbar(home.getToolbar());
 
@@ -113,6 +115,10 @@ public class CCExpert {
 
     public void loadAttackSpeedSimulator() {
         attackSpeedSimulator.show();
+    }
+
+    public void loadAetherocksSimulator() {
+        aetherockSimulator.show();
     }
 
     public Toolbar setToolbar(Toolbar tb) {

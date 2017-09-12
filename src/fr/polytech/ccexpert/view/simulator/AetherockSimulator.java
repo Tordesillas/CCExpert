@@ -1,36 +1,31 @@
 package fr.polytech.ccexpert.view.simulator;
 
 import com.codename1.components.SpanLabel;
-import com.codename1.ui.*;
+import com.codename1.ui.Button;
+import com.codename1.ui.Container;
+import com.codename1.ui.Label;
 import com.codename1.ui.animations.CommonTransitions;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.spinner.NumericSpinner;
-import com.codename1.ui.spinner.Picker;
 import fr.polytech.ccexpert.CCExpert;
-import fr.polytech.ccexpert.controller.ShardProcessor;
+import fr.polytech.ccexpert.controller.AetherockProcessor;
 
-public class ShardSimulator extends Simulator {
+public class AetherockSimulator extends Simulator {
+    private AetherockProcessor ap;
     private NumericSpinner lvlStart;
     private NumericSpinner lvlEnd;
-    private ShardProcessor sp;
-    private Picker category;
     private Container res;
 
-    public ShardSimulator(CCExpert main) {
+    public AetherockSimulator(CCExpert main) {
         super(main);
-        setTitle("Fragments");
-        sp = new ShardProcessor();
+        setTitle("Aura-guerrières");
+        ap = new AetherockProcessor();
         addCommandListener(this);
 
         SpanLabel intro = new SpanLabel("Niveau actuel du héros :");
-        lvlStart = createSpinner(1, 10);
+        lvlStart = createSpinner(1, 20);
         Label text = new Label("Niveau à atteindre :");
-        lvlEnd = createSpinner(2, 11);
-        category = new Picker();
-        category.setType(Display.PICKER_TYPE_STRINGS);
-        category.setStrings("Légendaire", "Élite", "Ordinaire");
-        category.setSelectedString("Légendaire");
-        category.getStyle().setMarginTop(5);
+        lvlEnd = createSpinner(2, 21);
 
         lookFor = new Button("Analyser");
         lookFor.addActionListener(this);
@@ -41,15 +36,12 @@ public class ShardSimulator extends Simulator {
         addComponent(lvlStart);
         addComponent(text);
         addComponent(lvlEnd);
-        addComponent(category);
         addComponent(lookFor);
         addComponent(res);
     }
 
-    private void howManyShards() {
-        int firstLevel = (int)lvlStart.getValue();
-        int secondLevel = (int)lvlEnd.getValue();
-        Container tmp = sp.printShardAmount(firstLevel, secondLevel, category.getSelectedString());
+    private void howManyAetherocks() {
+        Container tmp = ap.printAetherockAmount((int)lvlStart.getValue(), (int)lvlEnd.getValue());
         replace(res, tmp, CommonTransitions.createFade(300));
         res = tmp;
     }
@@ -57,7 +49,7 @@ public class ShardSimulator extends Simulator {
     @Override
     public void actionPerformed(ActionEvent evt) {
         if (evt.getSource() == lookFor) {
-            howManyShards();
+            howManyAetherocks();
             show();
         }
         if (evt.getCommand() == back) {
