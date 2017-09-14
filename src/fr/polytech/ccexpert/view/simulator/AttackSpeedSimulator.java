@@ -69,9 +69,7 @@ public class AttackSpeedSimulator extends Simulator {
     }
 
     private void buildSelector() {
-        Hero[] heroes = { new Hero("Skeletica", main.getTheme().getImage("Skeletica_Icon.png")),
-                new Hero("Ducilia", main.getTheme().getImage("unicorn.jpg")),
-                new Hero("Mage", main.getTheme().getImage("unicorn.jpg"))};
+        Hero[] heroes = { };
 
         buttonHero = new MultiButton("Choisis un héros");
         buttonHero.addActionListener(e -> {

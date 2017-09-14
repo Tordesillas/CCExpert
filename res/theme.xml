@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <resource majorVersion="1" minorVersion="7" useXmlUI="false">
+    <image name="aetherock.png"  />
     <image name="Anubis_Icon.png"  />
     <image name="Arctica_Icon.png"  />
     <image name="Aries_Icon.png"  />
@@ -674,6 +675,7 @@
     <image name="back-command.png3" type="multi"  />
     <image name="Beast_Tamer_Icon.png"  />
     <image name="blitz.png"  />
+    <image name="bluecrystal.png"  />
     <image name="border.png"  />
     <image name="border.png1"  />
     <image name="border.png2"  />
@@ -770,5 +772,4 @@
     <image name="Button.borderTopL_9.png" type="multi"  />
     <image name="Button.borderTopR_1.png" type="multi"  />
     <image name="Button.borderTopR_10.png" type="multi"  />
-    <image name="Button.borderTopR_11.png" type="multi"  />
-    <image name="Button.borderTopR_12.p
+    <image name="Button.b

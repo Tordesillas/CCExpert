@@ -3,6 +3,7 @@ package fr.polytech.ccexpert.model;
 import com.codename1.ui.Image;
 
 public class Hero {
+    private String nom;
     private String name;
     private Image picture;
 
@@ -23,9 +24,25 @@ public class Hero {
     private String talent;
     private String equipmentTalent;
 
-    public Hero(String name, Image picture) {
+    public Hero(String nom, String name, Image picture, int attackSpeed, int attack, int attackByLvl,
+                int healthPoints, int healthByLvl, int speed, int speedByLvl, int criticalHit,
+                int criticalDamage, int criticalResist, int accuracy, int dodge, int range) {
+        this.nom = nom;
         this.name = name;
         this.picture = picture;
+        this.attackSpeed = attackSpeed;
+        this.attack = attack;
+        this.attackByLvl = attackByLvl;
+        this.healthPoints = healthPoints;
+        this.healthByLvl = healthByLvl;
+        this.speed = speed;
+        this.speedByLvl = speedByLvl;
+        this.criticalHit = criticalHit;
+        this.criticalDamage = criticalDamage;
+        this.criticalResist = criticalResist;
+        this.accuracy = accuracy;
+        this.dodge = dodge;
+        this.range = range;
     }
 
     public String getName() {

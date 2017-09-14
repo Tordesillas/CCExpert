@@ -9,19 +9,19 @@ public class Sets {
     private Map<String, Hero> heroesNames;
     private Map<String, Crest> crestsNames;
 
-    public Sets() {
+    Sets() {
         heroesIds = new HashMap<>();
         crestsIds = new HashMap<>();
         heroesNames = new HashMap<>();
         crestsNames = new HashMap<>();
     }
 
-    public void addHero(Hero hero, int id) {
+    void addHero(Hero hero, int id) {
         heroesIds.put(id, hero);
         heroesNames.put(hero.getName(), hero);
     }
 
-    public void addCrest(Crest crest, int id) {
+    void addCrest(Crest crest, int id) {
         crestsIds.put(id, crest);
         crestsNames.put(crest.getName(), crest);
     }

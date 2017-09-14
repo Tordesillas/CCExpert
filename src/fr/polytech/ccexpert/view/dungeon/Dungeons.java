@@ -33,12 +33,7 @@ public class Dungeons extends Form implements ActionListener {
 
         try {
             ArrayList<Hero> heroes = new ArrayList<>();
-            heroes.add(new Hero("Skeletica", main.getTheme().getImage("unicorn.jpg")));
-            heroes.add(new Hero("Skeletica", main.getTheme().getImage("unicorn.jpg")));
-            heroes.add(new Hero("Skeletica", main.getTheme().getImage("unicorn.jpg")));
-            heroes.add(new Hero("Skeletica", main.getTheme().getImage("unicorn.jpg")));
-            heroes.add(new Hero("Skeletica", main.getTheme().getImage("unicorn.jpg")));
-            heroes.add(new Hero("Skeletica", main.getTheme().getImage("unicorn.jpg")));
+
             ArrayList<Crest> crests = new ArrayList<>();
             crests.add(new Crest("Berzerk", "Bah ça berserk", main.getTheme().getImage("unicorn.jpg")));
             crests.add(new Crest("Berzerk", "Bah ça berserk", main.getTheme().getImage("unicorn.jpg")));

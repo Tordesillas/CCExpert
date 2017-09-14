@@ -4,6 +4,7 @@ import com.codename1.ui.*;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
+import fr.polytech.ccexpert.model.DatabaseBrowser;
 import fr.polytech.ccexpert.model.Sets;
 import fr.polytech.ccexpert.view.*;
 import fr.polytech.ccexpert.view.dungeon.Dungeons;
@@ -47,7 +48,14 @@ public class CCExpert {
             return;
         }
 
-        sets = new Sets();
+        DatabaseBrowser db;
+        try {
+            db = new DatabaseBrowser(this, "ccexpert.sqlite");
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
+        }
+        sets = db.getSetsFromDatabase();
 
         home = new Home(this);
         heroesSearch = new HeroesSearch(this);
