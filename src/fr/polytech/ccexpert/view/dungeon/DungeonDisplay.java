@@ -1,27 +1,27 @@
 package fr.polytech.ccexpert.view.dungeon;
 
 import com.codename1.components.MultiButton;
+import com.codename1.components.SpanLabel;
 import com.codename1.ui.*;
-
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.util.MathUtil;
 import fr.polytech.ccexpert.CCExpert;
-import fr.polytech.ccexpert.model.Crest;
-import fr.polytech.ccexpert.model.Dungeon;
-import fr.polytech.ccexpert.model.Hero;
+import fr.polytech.ccexpert.model.*;
 
 import java.util.ArrayList;
 
 class DungeonDisplay extends Form implements ActionListener {
     private CCExpert main;
+    private Sets sets;
     private Command back;
 
     DungeonDisplay(CCExpert main, Dungeon dungeon) {
         this.main = main;
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
         setTitle("Donjon " + dungeon.getDoor() + "-" + dungeon.getBase());
+        sets = main.getSets();
 
         MultiButton youtubeLink = new MultiButton("Lien YouTube");
         youtubeLink.setIcon(main.getTheme().getImage("youtube.svg").scaledWidth(MathUtil.round(Display.getInstance().getDisplayWidth() / 3)));
@@ -31,10 +31,8 @@ class DungeonDisplay extends Form implements ActionListener {
         Label title = new Label("Donjon " + dungeon.getDoor() + " - " + dungeon.getBase());
 
         addComponent(title);
-        addComponent(new Label("Héros utilisés dans la vidéo :"));
-        addComponent(listHeroes(dungeon.getHeroes()));
-        addComponent(new Label("Écussons utilisés dans la vidéo :"));
-        addComponent(listCrests(dungeon.getCrests()));
+        addComponent(new Label("Détails des héros utilisés dans la vidéo :"));
+        addComponent(listHeroes(dungeon.getHeroesIds()));
 
         back = new Command("Retour", FontImage.MATERIAL_ARROW_BACK);
         setBackCommand(back);
@@ -44,14 +42,27 @@ class DungeonDisplay extends Form implements ActionListener {
         show();
     }
 
-    private Container listHeroes(ArrayList<Hero> heroes) {
+    private Container listHeroes(int[] ids) {
         Container cHeroes = new Container(new BoxLayout(BoxLayout.X_AXIS));
         cHeroes.setScrollableX(true);
-        Label l;
-        for (Hero hero : heroes) {
-            l = new Label(hero.getName(), hero.getPicture().scaledWidth(MathUtil.round(Display.getInstance().getDisplayWidth() / 4)));
-            l.setTextPosition(Label.BOTTOM);
-            cHeroes.addComponent(l);
+
+        Container cHero;
+        HeroFaculties heroFaculties;
+        Hero hero;
+        Label pic;
+        SpanLabel text;
+
+        for (int id : ids) {
+            cHero = new Container(new BoxLayout(BoxLayout.Y_AXIS));
+            heroFaculties = sets.getHeroFaculties(id);
+            hero = sets.getHero(heroFaculties.getHeroId());
+            pic = new Label(hero.getPicture().scaledWidth(MathUtil.round(Display.getInstance().getDisplayWidth() / 4)));
+            text = new SpanLabel(hero.getName());
+
+            cHero.addComponent(pic);
+            cHero.addComponent(text);
+
+            cHeroes.addComponent(cHeroes);
         }
         return cHeroes;
     }

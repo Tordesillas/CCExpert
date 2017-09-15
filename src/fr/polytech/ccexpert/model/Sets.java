@@ -1,19 +1,21 @@
 package fr.polytech.ccexpert.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Sets {
     private Map<Integer, Hero> heroesIds;
-    private Map<Integer, Crest> crestsIds;
     private Map<String, Hero> heroesNames;
-    private Map<String, Crest> crestsNames;
+    private Map<Integer, HeroFaculties> heroesFaculties;
+    private List<Dungeon> dungeonSet;
 
     Sets() {
         heroesIds = new HashMap<>();
-        crestsIds = new HashMap<>();
         heroesNames = new HashMap<>();
-        crestsNames = new HashMap<>();
+        heroesFaculties = new HashMap<>();
+        dungeonSet = new ArrayList<>();
     }
 
     void addHero(Hero hero, int id) {
@@ -21,24 +23,27 @@ public class Sets {
         heroesNames.put(hero.getName(), hero);
     }
 
-    void addCrest(Crest crest, int id) {
-        crestsIds.put(id, crest);
-        crestsNames.put(crest.getName(), crest);
+    void addHeroCompo(HeroFaculties compo, int id) {
+        heroesFaculties.put(id, compo);
+    }
+
+    void addDungeon(Dungeon dungeon) {
+        dungeonSet.add(dungeon);
     }
 
     public Hero getHero(int id) {
         return heroesIds.get(id);
     }
 
-    public Crest getCrest(int id) {
-        return crestsIds.get(id);
-    }
-
     public Hero getHero(String name) {
         return heroesNames.get(name);
     }
 
-    public Crest getCrest(String name) {
-        return crestsNames.get(name);
+    public HeroFaculties getHeroFaculties(int id) {
+        return heroesFaculties.get(id);
+    }
+
+    public List<Dungeon> getDungeonSet() {
+        return dungeonSet;
     }
 }

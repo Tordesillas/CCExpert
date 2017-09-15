@@ -24,7 +24,8 @@ public class DatabaseBrowser {
 
         loadDatabase(path);
         loadHeroes();
-        //loadDungeons();
+        loadCompoHeroes();
+        loadDungeons();
 
         db.close();
     }
@@ -54,17 +55,35 @@ public class DatabaseBrowser {
                     l.getInteger(4), l.getInteger(5), l.getInteger(6), l.getInteger(7), l.getInteger(8),
                     l.getInteger(9), l.getInteger(10), l.getInteger(11), l.getInteger(12),l.getInteger(13),
                     l.getInteger(14), l.getInteger(15),l.getInteger(16));
-                    sets.addHero(hero, l.getInteger(0));
+            sets.addHero(hero, l.getInteger(0));
+        }
+        c.close();
+    }
+
+    private void loadCompoHeroes() throws IOException {
+        Cursor c = db.executeQuery("select * from Compositionhero");
+        Row l;
+        HeroFaculties heroFaculties;
+        while (c.next()) {
+            l = c.getRow();
+            heroFaculties = new HeroFaculties(l.getInteger(1), l.getInteger(2), l.getInteger(3), l.getString(4),
+                    l.getInteger(5), l.getInteger(6), l.getString(7), l.getInteger(8), l.getInteger(9),
+                    l.getInteger(10), l.getInteger(11));
+            sets.addHeroCompo(heroFaculties, l.getInteger(0));
         }
         c.close();
     }
 
     private void loadDungeons() throws IOException {
         Cursor c = db.executeQuery("select * from Dungeons");
-        Row line;
+        Row l;
+        Dungeon d;
         while (c.next()) {
-            line = c.getRow();
-            System.out.println(line.getString(0));
+            l = c.getRow();
+            d = new Dungeon(l.getString(1), l.getInteger(2), l.getInteger(3), l.getInteger(4),
+                    l.getInteger(5), l.getInteger(6), l.getInteger(7), l.getInteger(8),
+                    l.getInteger(9));
+            sets.addDungeon(d);
         }
         c.close();
     }

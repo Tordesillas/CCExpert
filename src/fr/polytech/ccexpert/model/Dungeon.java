@@ -2,21 +2,23 @@ package fr.polytech.ccexpert.model;
 
 import com.codename1.io.URL;
 
-import java.util.ArrayList;
+import java.net.URISyntaxException;
 
 public class Dungeon {
     private URL urlYoutube;
     private int door;
     private int base;
-    private ArrayList<Hero> heroes;
-    private ArrayList<Crest> crests;
+    private int[] heroesIds;
 
-    public Dungeon(URL urlYoutube, int door, int base, ArrayList<Hero> heroes, ArrayList<Crest> crests) {
-        this.urlYoutube = urlYoutube;
+    Dungeon(String urlYoutube, int door, int base, int compo1, int compo2, int compo3, int compo4, int compo5, int compo6) {
+        try {
+            this.urlYoutube = new URL(urlYoutube);
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
         this.door = door;
         this.base = base;
-        this.heroes = heroes;
-        this.crests = crests;
+        heroesIds = new int[]{compo1, compo2, compo3, compo4, compo5, compo6};
     }
 
     public URL getUrlYoutube() {
@@ -31,11 +33,7 @@ public class Dungeon {
         return base;
     }
 
-    public ArrayList<Hero> getHeroes() {
-        return heroes;
-    }
-
-    public ArrayList<Crest> getCrests() {
-        return crests;
+    public int[] getHeroesIds() {
+        return heroesIds;
     }
 }
