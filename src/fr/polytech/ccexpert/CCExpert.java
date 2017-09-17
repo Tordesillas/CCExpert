@@ -48,6 +48,15 @@ public class CCExpert {
             return;
         }
 
+        /*try {  //Splash Screen
+            Form splashScreen = new Form();
+            splashScreen.getUnselectedStyle().setBgImage(this.getTheme().getImage("unicorn.jpg"));
+            splashScreen.show();
+            Thread.sleep(2000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
+
         DatabaseBrowser db;
         try {
             db = new DatabaseBrowser(this, "ccexpert.sqlite");

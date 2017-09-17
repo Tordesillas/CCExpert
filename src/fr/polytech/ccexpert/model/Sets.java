@@ -1,9 +1,6 @@
 package fr.polytech.ccexpert.model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Sets {
     private Map<Integer, Hero> heroesIds;
@@ -37,6 +34,10 @@ public class Sets {
 
     public Hero getHero(String name) {
         return heroesNames.get(name);
+    }
+
+    public Collection<Hero> getHeroes() {
+        return heroesNames.values();
     }
 
     public HeroFaculties getHeroFaculties(int id) {

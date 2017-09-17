@@ -11,6 +11,8 @@ import fr.polytech.ccexpert.CCExpert;
 import fr.polytech.ccexpert.controller.AttackSpeedProcessor;
 import fr.polytech.ccexpert.model.Hero;
 
+import java.util.Collection;
+
 public class AttackSpeedSimulator extends Simulator {
     private AttackSpeedProcessor asp;
     private MultiButton buttonHero;
@@ -69,9 +71,9 @@ public class AttackSpeedSimulator extends Simulator {
     }
 
     private void buildSelector() {
-        Hero[] heroes = { };
+        Collection<Hero> heroes = main.getSets().getHeroes();
 
-        buttonHero = new MultiButton("Choisis un héros");
+        buttonHero = new MultiButton("Choisissez un héros");
         buttonHero.addActionListener(e -> {
             Dialog d = new Dialog();
             d.setLayout(BoxLayout.y());
