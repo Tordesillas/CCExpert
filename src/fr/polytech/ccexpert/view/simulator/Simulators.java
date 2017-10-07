@@ -37,7 +37,7 @@ public class Simulators extends Form implements ActionListener {
         buttonDodge = new Button("Esquive", resizePicture(main.getTheme().getImage("pierre_de_foudre.png")));
         buttonAccuracy = new Button("Précision", resizePicture(main.getTheme().getImage("garuda.png")));
         buttonAttackSpeed = new Button("Vitesse d'attaque", resizePicture(main.getTheme().getImage("blitz.png")));
-        buttonAetherocks = new Button("Aura-guerières", resizePicture(main.getTheme().getImage("aetherock.png")));
+        buttonAetherocks = new Button("Aura-guerrières", resizePicture(main.getTheme().getImage("aetherock.png")));
         actions.addComponent(buttonGuildWar);
         actions.addComponent(buttonShards);
         actions.addComponent(buttonCrystals);

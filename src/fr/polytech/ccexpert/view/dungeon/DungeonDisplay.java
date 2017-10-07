@@ -54,15 +54,24 @@ class DungeonDisplay extends Form implements ActionListener {
 
         for (int id : ids) {
             cHero = new Container(new BoxLayout(BoxLayout.Y_AXIS));
+            cHero.getStyle().setAlignment(CENTER);
             heroFaculties = sets.getHeroFaculties(id);
             hero = sets.getHero(heroFaculties.getHeroId());
             pic = new Label(hero.getPicture().scaledWidth(MathUtil.round(Display.getInstance().getDisplayWidth() / 4)));
-            text = new SpanLabel(hero.getName());
+            text = new SpanLabel(hero.getFrenchName());
 
             cHero.addComponent(pic);
             cHero.addComponent(text);
 
-            cHeroes.addComponent(cHeroes);
+            if (heroFaculties.getLevel() != 0) {
+                cHero.addComponent(new Label("Niveau " + heroFaculties.getLevel()));
+            }
+
+            if (heroFaculties.getInscription() != 0) {
+                cHero.addComponent(new Label("Gravé " + heroFaculties.getLevel()));
+            }
+
+            cHeroes.addComponent(cHero);
         }
         return cHeroes;
     }

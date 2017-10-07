@@ -79,7 +79,7 @@ public class AttackSpeedSimulator extends Simulator {
             d.setLayout(BoxLayout.y());
             d.getContentPane().setScrollableY(true);
             for (Hero hero : heroes) {
-                MultiButton mb = new MultiButton(hero.getName());
+                MultiButton mb = new MultiButton(hero.getFrenchName());
                 mb.setIcon(hero.getPicture());
                 d.add(mb);
                 mb.addActionListener(evt -> {

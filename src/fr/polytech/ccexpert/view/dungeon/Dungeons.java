@@ -38,7 +38,11 @@ public class Dungeons extends Form implements ActionListener {
     private MultiButton createButtonDungeon(Dungeon d) {
         MultiButton infoDungeon = new MultiButton();
         infoDungeon.setTextLine1(d.getDoor() + " - " + d.getBase());
-        infoDungeon.setTextLine2("F2P / P2W");
+        String f2p = d.isF2p() ? "F2P" : "P2W";
+        infoDungeon.setTextLine2(f2p);
+        if (d.isAllFlames()) {
+            infoDungeon.setTextLine3("3 Flammes");
+        }
         infoDungeon.addActionListener(evt -> new DungeonDisplay(main, d));
 
         return infoDungeon;

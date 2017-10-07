@@ -45,8 +45,8 @@ public class Hero {
         this.range = range;
     }
 
-    public String getName() {
-        return name;
+    public String getFrenchName() {
+        return nom;
     }
 
     public Image getPicture() {

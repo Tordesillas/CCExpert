@@ -90,7 +90,7 @@ public class HeroesSearch extends Form implements ActionListener {
         MultiButton infoHero = new MultiButton();
         infoHero.setEmblem(hero.getPicture());
         infoHero.setEmblem(main.getTheme().getImage("unicorn.jpg"));
-        infoHero.setTextLine1(hero.getName());
+        infoHero.setTextLine1(hero.getFrenchName());
         infoHero.setTextLine2(subtitle);
         infoHero.addActionListener(evt -> new HeroDisplay(main, hero));
 

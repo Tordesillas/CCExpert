@@ -14,9 +14,9 @@ class HeroDisplay extends Form implements ActionListener {
     HeroDisplay(CCExpert main, Hero hero) {
         this.main = main;
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
-        setTitle(hero.getName());
+        setTitle(hero.getFrenchName());
 
-        Label nameLabel = new Label("Nom : " + hero.getName());
+        Label nameLabel = new Label("Nom : " + hero.getFrenchName());
         Label data1 = new Label("Data");
         Label data2 = new Label("Data again");
         addComponent(nameLabel);

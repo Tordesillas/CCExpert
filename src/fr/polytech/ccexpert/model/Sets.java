@@ -17,7 +17,7 @@ public class Sets {
 
     void addHero(Hero hero, int id) {
         heroesIds.put(id, hero);
-        heroesNames.put(hero.getName(), hero);
+        heroesNames.put(hero.getFrenchName(), hero);
     }
 
     void addHeroCompo(HeroFaculties compo, int id) {

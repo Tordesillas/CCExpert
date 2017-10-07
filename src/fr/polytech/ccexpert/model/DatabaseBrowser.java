@@ -51,7 +51,7 @@ public class DatabaseBrowser {
         Hero hero;
         while (c.next()) {
             l = c.getRow();
-            hero = new Hero(l.getString(1), l.getString(2), main.getTheme().getImage(l.getString(3)),
+            hero = new Hero(l.getString(1), l.getString(2), main.getTheme().getImage("Anubis_Icon.png"),
                     l.getInteger(4), l.getInteger(5), l.getInteger(6), l.getInteger(7), l.getInteger(8),
                     l.getInteger(9), l.getInteger(10), l.getInteger(11), l.getInteger(12),l.getInteger(13),
                     l.getInteger(14), l.getInteger(15),l.getInteger(16));
@@ -82,7 +82,7 @@ public class DatabaseBrowser {
             l = c.getRow();
             d = new Dungeon(l.getString(1), l.getInteger(2), l.getInteger(3), l.getInteger(4),
                     l.getInteger(5), l.getInteger(6), l.getInteger(7), l.getInteger(8),
-                    l.getInteger(9));
+                    l.getInteger(9), l.getInteger(10), l.getInteger(11));
             sets.addDungeon(d);
         }
         c.close();
